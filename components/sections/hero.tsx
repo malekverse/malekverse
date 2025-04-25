@@ -145,7 +145,7 @@ export function Hero() {
               whileHover={{ scale: 1.05 }}
             >
               <Image
-                src="/placeholder.svg?height=256&width=256"
+                src="/malek-face.png?height=256&width=256"
                 alt="Malek Maghraoui"
                 fill
                 className="object-cover"
