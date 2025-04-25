@@ -1,0 +1,343 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222 47% 11%;
+
+    /* Custom color variables for the portfolio - light mode */
+    --primary-bg: 0 0% 100%;
+    --secondary-bg: 210 40% 96.1%;
+    --primary-accent: 174 75% 39%;
+    --secondary-accent: 187 92% 41%;
+    --text-primary: 222 47% 11%;
+    --text-secondary: 215 25% 27%;
+    --success: 160 84% 39%;
+    --error: 0 84% 60%;
+    --warning: 35 92% 51%;
+  }
+
+  .dark {
+    /* Dark mode colors */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Custom color variables for the portfolio - dark mode */
+    --primary-bg: 217 20% 6%;
+    --secondary-bg: 215 22% 11%;
+    --primary-accent: 174 75% 51%;
+    --secondary-accent: 187 92% 69%;
+    --text-primary: 0 0% 100%;
+    --text-secondary: 214 15% 83%;
+    --success: 160 84% 39%;
+    --error: 0 84% 60%;
+    --warning: 35 92% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(to right, #2dd4bf, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+
+  .section-heading {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-heading {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  .section-heading {
+    background: linear-gradient(to right, #2dd4bf, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+
+  .section-subheading {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-subheading {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+
+  .card-hover {
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 0 15px rgba(45, 212, 191, 0.3);
+    transform: translateY(-0.25rem);
+  }
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(45, 212, 191, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(45, 212, 191, 0.3);
+}
+
+/* Hide default cursor when custom cursor is active */
+.cursor-none {
+  cursor: none;
+}
+
+.cursor-none a,
+.cursor-none button,
+.cursor-none [role="button"],
+.cursor-none input[type="submit"],
+.cursor-none input[type="button"],
+.cursor-none .clickable,
+.cursor-none [style*="cursor: pointer"] {
+  cursor: none !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0a0a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 212, 191, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 212, 191, 0.8);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Parallax effect */
+.parallax {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.8, 1);
+}
+
+/* Scroll animations */
+@keyframes reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.reveal-text {
+  animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Star twinkling animation */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.star {
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+/* Cosmic pulse animation */
+@keyframes cosmicPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(45, 212, 191, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(45, 212, 191, 0.6);
+  }
+}
+
+.cosmic-pulse {
+  animation: cosmicPulse 3s infinite ease-in-out;
+}
+
+/* Orbit animation */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+  }
+}
+
+.orbit {
+  animation: orbit 20s linear infinite;
+}
+
+/* Light mode specific styles */
+:root:not(.dark) .cosmic-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+:root:not(.dark) .nav-item {
+  color: #333;
+}
+
+:root:not(.dark) .nav-item.active {
+  color: #2dd4bf;
+}
+
+:root:not(.dark) .cosmic-bg-element {
+  opacity: 0.3;
+}
+
+/* Light mode adjustments for specific components */
+:root:not(.dark) .hero-section {
+  background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+  color: #1e293b;
+}
+
+:root:not(.dark) .hero-text {
+  color: #1e293b;
+}
+
+:root:not(.dark) .hero-subtext {
+  color: #475569;
+}
+
+:root:not(.dark) .card-content {
+  background-color: white;
+  color: #1e293b;
+}
+
+:root:not(.dark) .card-description {
+  color: #64748b;
+}
+
+:root:not(.dark) .footer-text {
+  color: #64748b;
+}
