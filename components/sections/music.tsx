@@ -2,8 +2,9 @@
 
 import { useRef } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Play, Pause, SkipForward, SkipBack, Volume2 } from "lucide-react"
+import { Play, Pause, SkipForward, SkipBack, Volume2, ArrowRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
 import { useState } from "react"
@@ -181,6 +182,15 @@ export function Music() {
               </CardContent>
             </Card>
           </motion.div>
+        </div>
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/music"
+            className="group inline-flex items-center gap-1 text-teal-500 hover:text-teal-600 transition-colors"
+          >
+            <span>Learn more about my music</span>
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

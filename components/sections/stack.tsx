@@ -2,8 +2,9 @@
 
 import { useRef } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, ArrowRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function Stack() {
@@ -130,15 +131,19 @@ export function Stack() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12"
         >
-          <h2 className="section-heading">Stack</h2>
-          <h3 className="text-2xl md:text-3xl font-bold mt-2 mb-6">Tools, technology and apps I use every day.</h3>
+          <h2 className="section-heading bg-gradient-to-r from-teal-400 to-purple-500 bg-clip-text text-transparent">
+            Stack
+          </h2>
+          <h3 className="text-2xl md:text-3xl font-bold mt-2 mb-6 text-white">
+            Tools, technology and apps I use every day.
+          </h3>
         </motion.div>
 
         <div className="space-y-16">
           {categories.map((category, categoryIndex) => (
             <div key={category.id} className="space-y-6">
               <motion.h3
-                className="text-xl font-bold"
+                className="text-xl font-bold text-teal-400"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * categoryIndex }}
@@ -170,7 +175,7 @@ export function Stack() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-1">
-                              <h4 className="font-medium">{tool.name}</h4>
+                              <h4 className="font-medium text-gray-900 dark:text-white">{tool.name}</h4>
                               {tool.link && (
                                 <a
                                   href={tool.link}
@@ -182,7 +187,7 @@ export function Stack() {
                                 </a>
                               )}
                             </div>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{tool.description}</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{tool.description}</p>
                           </div>
                         </div>
                       </CardContent>
@@ -192,6 +197,15 @@ export function Stack() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/stack"
+            className="group inline-flex items-center gap-1 text-teal-400 hover:text-teal-300 transition-colors"
+          >
+            <span>Learn more about my stack</span>
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

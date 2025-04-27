@@ -15,6 +15,7 @@ import { CalendarView } from "@/components/admin/calendar-view"
 import { SkillsTracker } from "@/components/admin/skills-tracker"
 import { JobApplicationsTracker } from "@/components/admin/job-applications-tracker"
 import { ContentHub } from "@/components/admin/content-hub/content-hub"
+import { SettingsPage } from "@/components/admin/settings-page"
 
 interface AdminDashboardProps {
   onLogout: () => void
@@ -54,6 +55,8 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
         return <JobApplicationsTracker />
       case "content-hub":
         return <ContentHub />
+      case "settings":
+        return <SettingsPage />
       default:
         return <DashboardOverview />
     }

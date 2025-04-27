@@ -45,6 +45,7 @@ export function AdminSidebar({ activeSection, setActiveSection, isOpen }: AdminS
     { id: "calendar", label: "Calendar", icon: <Calendar size={20} /> },
     { id: "skills", label: "Skills", icon: <GraduationCap size={20} /> },
     { id: "jobs", label: "Job Applications", icon: <Briefcase size={20} /> },
+    { id: "settings", label: "Settings", icon: <Settings size={20} /> },
   ]
 
   // If mobile and sidebar is open, render a full-screen sidebar
@@ -87,10 +88,7 @@ export function AdminSidebar({ activeSection, setActiveSection, isOpen }: AdminS
               ))}
             </nav>
             <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
-              <button className="flex w-full items-center space-x-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <Settings size={20} />
-                <span>Settings</span>
-              </button>
+              {/* Settings moved to main navigation */}
               <Link
                 href="/"
                 className="flex w-full items-center space-x-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors mt-1"
@@ -140,10 +138,7 @@ export function AdminSidebar({ activeSection, setActiveSection, isOpen }: AdminS
               ))}
             </nav>
             <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
-              <button className="flex w-full items-center space-x-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <Settings size={20} />
-                <span>Settings</span>
-              </button>
+              {/* Settings moved to main navigation */}
               <Link
                 href="/"
                 className="flex w-full items-center space-x-3 rounded-md px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors mt-1"

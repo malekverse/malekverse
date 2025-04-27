@@ -109,12 +109,12 @@ const config = {
       borderRadius: {
         DEFAULT: "0.5rem",
         none: "0",
-        sm: "0.25rem",
-        md: "0.375rem",
-        lg: "0.5rem",
-        xl: "0.75rem",
-        "2xl": "1rem",
-        "3xl": "1.5rem",
+        sm: "0.35rem",
+        md: "0.475rem",
+        lg: "0.6rem",
+        xl: "0.85rem",
+        "2xl": "1.1rem",
+        "3xl": "1.6rem",
         full: "9999px",
       },
       keyframes: {

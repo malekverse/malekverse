@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { Inter, Geist as Geist_Sans } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const geist = Geist_Sans({ subsets: ["latin"], variable: "--font-geist" })
@@ -44,7 +43,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -66,7 +64,6 @@ export default function RootLayout({
           storageKey="portfolio-theme"
         >
           {children}
-          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>

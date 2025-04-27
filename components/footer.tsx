@@ -8,12 +8,12 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { icon: <Facebook size={18} />, href: "#", label: "Facebook" },
-    { icon: <Instagram size={18} />, href: "#", label: "Instagram" },
-    { icon: <Linkedin size={18} />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter size={18} />, href: "#", label: "Twitter" },
-    { icon: <Github size={18} />, href: "#", label: "GitHub" },
-  ]
+      { icon: <Facebook size={20} />, href: "https://www.facebook.com/malekmaghraoui.official", label: "Facebook" },
+      { icon: <Instagram size={20} />, href: "https://www.instagram.com/malek_maghraoui", label: "Instagram" },
+      { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/malek-maghraoui", label: "LinkedIn" },
+      // { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
+      { icon: <Github size={20} />, href: "https://github.com/maghraoui3", label: "GitHub" },
+    ]
 
   return (
     <footer className="py-6 border-t border-gray-200 dark:border-gray-800">
@@ -43,6 +43,7 @@ export function Footer() {
                 <a
                   key={index}
                   href={link.href}
+                  target={'_blank'}
                   className="text-gray-600 hover:text-teal-500 dark:text-gray-400 dark:hover:text-teal-400 transition-colors"
                   aria-label={link.label}
                 >

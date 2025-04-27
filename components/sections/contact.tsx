@@ -4,12 +4,13 @@ import type React from "react"
 
 import { useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react"
+import { Mail, Phone, MapPin, Send, MessageSquare, ArrowRight } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
+import Link from "next/link"
 
 export function Contact() {
   const containerRef = useRef<HTMLElement>(null)
@@ -261,6 +262,15 @@ export function Contact() {
               </CardContent>
             </Card>
           </motion.div>
+        </div>
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-1 text-teal-500 hover:text-teal-600 transition-colors"
+          >
+            <span>Learn more about contacting me</span>
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

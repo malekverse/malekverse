@@ -2,7 +2,8 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Award, Calendar, GraduationCap, MapPin, User } from "lucide-react"
+import Link from "next/link"
+import { Award, Calendar, GraduationCap, MapPin, User, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FadeIn, StaggerContainer, staggerItem, Parallax } from "@/components/animations/scroll-animations"
 
@@ -46,7 +47,9 @@ export function About() {
     <section id="about" ref={containerRef} className="py-20 min-h-screen flex flex-col justify-center">
       <div className="container mx-auto">
         <FadeIn>
-          <h2 className="section-heading">About Me</h2>
+          <h2 className="section-heading bg-gradient-to-r from-teal-400 to-purple-500 bg-clip-text text-transparent">
+            About Me
+          </h2>
         </FadeIn>
 
         <div className="grid md:grid-cols-2 gap-12 mt-8">
@@ -56,8 +59,8 @@ export function About() {
                 <User className="text-teal-500" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Who am I?</h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Who am I?</h3>
+                <p className="text-gray-700 dark:text-gray-300">
                   Creative and results-driven Web Developer & UI/UX Designer with a strong technical foundation and a
                   passion for crafting seamless digital experiences. Known for combining design precision with
                   development expertise, delivering polished products from concept to launch.
@@ -70,8 +73,8 @@ export function About() {
                 <MapPin className="text-teal-500" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Location</h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Location</h3>
+                <p className="text-gray-700 dark:text-gray-300">
                   Based in Ariana, Borjlouzir, Tunisia. Available for remote work and collaborations worldwide.
                 </p>
               </div>
@@ -82,8 +85,8 @@ export function About() {
                 <Award className="text-teal-500" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Experience & Achievements</h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Experience & Achievements</h3>
+                <p className="text-gray-700 dark:text-gray-300">
                   As an AWS Cloud Captain and active community member, I thrive in collaborative environments and lead
                   impactful initiatives. With 23 hackathons under my belt and a versatile freelance background, I bring
                   adaptability, innovation, and a commitment to excellence to every project.
@@ -103,7 +106,7 @@ export function About() {
           </StaggerContainer>
 
           <Parallax speed={-0.2} className="relative">
-            <h3 className="text-xl font-bold mb-6">My Journey</h3>
+            <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-gray-100">My Journey</h3>
 
             <div className="relative border-l-2 border-teal-500/30 pl-8 ml-4 space-y-10">
               {timelineItems.map((item, index) => (
@@ -119,14 +122,23 @@ export function About() {
                       }}
                     >
                       <span className="text-sm text-teal-500 font-medium">{item.year}</span>
-                      <h4 className="text-lg font-bold mt-1">{item.title}</h4>
-                      <p className="text-gray-600 dark:text-gray-400 mt-1">{item.description}</p>
+                      <h4 className="text-lg font-bold mt-1 text-gray-900 dark:text-gray-100">{item.title}</h4>
+                      <p className="text-gray-700 dark:text-gray-300 mt-1">{item.description}</p>
                     </motion.div>
                   </div>
                 </FadeIn>
               ))}
             </div>
           </Parallax>
+        </div>
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/about"
+            className="group inline-flex items-center gap-1 text-teal-500 hover:text-teal-600 transition-colors"
+          >
+            <span>Learn more about me</span>
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

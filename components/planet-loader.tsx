@@ -5,8 +5,6 @@ import { motion } from "framer-motion"
 import { useTheme } from "next-themes"
 
 export function PlanetLoader() {
-  const { resolvedTheme } = useTheme()
-  const isDark = resolvedTheme === "dark"
   const [loadingProgress, setLoadingProgress] = useState(0)
   const [loadingText, setLoadingText] = useState("Initializing...")
 
@@ -39,9 +37,9 @@ export function PlanetLoader() {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center ${isDark ? "bg-black" : "bg-gray-50"}`}
+      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-black`}
     >
-      <div className="relative w-40 h-40 mb-16">
+      <div className="relative w-40 h-40 ">
         {/* Main planet */}
         <motion.div
           className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-600"
@@ -84,64 +82,53 @@ export function PlanetLoader() {
 
         {/* Orbiting rings */}
         <motion.div
-          className="absolute top-1/2 left-1/2 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2"
-          initial={{ opacity: 0, rotateX: 75, rotateZ: 0 }}
-          animate={{
-            opacity: 0.7,
-            rotateX: 75,
-            rotateZ: 360,
-          }}
-          transition={{
-            opacity: { duration: 1 },
-            rotateZ: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
-          }}
-        >
-          <div className="absolute top-1/2 left-1/2 w-[90%] h-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-teal-400/30 transform"></div>
-          <div className="absolute top-1/2 left-1/2 w-[70%] h-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-purple-500/20 transform"></div>
+          className="absolute top-1/2 left-1/2 w-[1%] h-[1%] -translate-x-1/2 -translate-y-1/2">
         </motion.div>
 
-        {/* Orbiting moons */}
+        {/* Orbiting moons - replaced with circular shapes */}
         <motion.div
           className="absolute w-5 h-5 rounded-full bg-teal-300 shadow-lg shadow-teal-500/50"
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0, x: 0, y: -50 }}
           animate={{
             opacity: 1,
-            rotate: 360,
+            x: [0, 35, 0, -35, 0],
+            y: [-50, 0, 50, 0, -50],
           }}
           transition={{
             opacity: { duration: 0.5 },
-            rotate: {
+            x: {
+              duration: 8,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            },
+            y: {
               duration: 8,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             },
           }}
-          style={{
-            top: "10%",
-            left: "50%",
-            transformOrigin: "0 40px",
-          }}
         />
 
         <motion.div
           className="absolute w-3 h-3 rounded-full bg-purple-400 shadow-lg shadow-purple-500/50"
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0, x: 0, y: 40 }}
           animate={{
             opacity: 1,
-            rotate: -360,
+            x: [0, -30, 0, 30, 0],
+            y: [40, 20, -20, -40, 40],
           }}
           transition={{
             opacity: { duration: 0.5, delay: 0.3 },
-            rotate: {
+            x: {
               duration: 5,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             },
-          }}
-          style={{
-            bottom: "15%",
-            right: "10%",
-            transformOrigin: "-20px -20px",
+            y: {
+              duration: 5,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            },
           }}
         />
 
@@ -175,20 +162,20 @@ export function PlanetLoader() {
         ))}
       </div>
 
-      {/* Loading progress */}
-      <motion.div
-        className="w-64 h-2 bg-gray-800/30 dark:bg-gray-700/30 rounded-full overflow-hidden mb-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <motion.div
-          className="h-full bg-gradient-to-r from-teal-400 to-purple-500"
-          initial={{ width: "0%" }}
-          animate={{ width: `${loadingProgress}%` }}
-          transition={{ duration: 0.3 }}
-        />
-      </motion.div>
+      {/* Innovative cosmic loading indicator - replacing traditional progress bar */}
+      <div className="relative w-64 h-16 mb-4">
+        <div className="absolute inset-0 flex items-center justify-center">
+
+          {/* Cosmic path - the trail that particles follow */}
+          <motion.div
+            className="absolute bottom-0 h-0.5 bg-gradient-to-r from-teal-400 via-indigo-500 to-purple-500 rounded-full"
+            style={{ width: `${loadingProgress}%` }}
+            initial={{ width: "0%" }}
+            animate={{ width: `${loadingProgress}%` }}
+            transition={{ duration: 0.3 }}
+          />
+        </div>
+      </div>
 
       {/* Loading text */}
       <motion.div className="text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>

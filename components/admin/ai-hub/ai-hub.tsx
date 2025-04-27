@@ -1,8 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PersonalDevFeed } from "./personal-dev-feed"
 import { PortfolioVisitorTracker } from "./portfolio-visitor-tracker"
 import { AIMentorshipAssistant } from "./ai-mentorship-assistant"
@@ -13,108 +12,68 @@ import { SkillGraph } from "./skill-graph"
 import { NetworkingRadar } from "./networking-radar"
 import { ConferenceTracker } from "./conference-tracker"
 import { PortfolioWatcher } from "./portfolio-watcher"
-import { Bot, Users, Lightbulb, Rocket, FlaskConical, Video, Network, Radio, Calendar, Eye } from "lucide-react"
 
 export function AIHub() {
   const [activeTab, setActiveTab] = useState("dev-feed")
 
+  const tabs = [
+    { id: "dev-feed", label: "Personal Dev Feed" },
+    { id: "visitor-tracker", label: "Portfolio Visitor Tracker" },
+    { id: "mentorship", label: "AI Mentorship Assistant" },
+    { id: "landing-page", label: "Project Landing Page Builder" },
+    { id: "idea-incubator", label: "Idea Incubator" },
+    { id: "tutorial-creator", label: "Auto Tutorial Creator" },
+    { id: "skill-graph", label: "Skill Graph" },
+    { id: "networking", label: "Networking Radar" },
+    { id: "conferences", label: "Conference Tracker" },
+    { id: "portfolio-watcher", label: "Portfolio Watcher" },
+  ]
+
+  const renderTabContent = (tabId: string) => {
+    switch (tabId) {
+      case "dev-feed":
+        return <PersonalDevFeed />
+      case "visitor-tracker":
+        return <PortfolioVisitorTracker />
+      case "mentorship":
+        return <AIMentorshipAssistant />
+      case "landing-page":
+        return <ProjectLandingPageBuilder />
+      case "idea-incubator":
+        return <IdeaIncubator />
+      case "tutorial-creator":
+        return <AutoTutorialCreator />
+      case "skill-graph":
+        return <SkillGraph />
+      case "networking":
+        return <NetworkingRadar />
+      case "conferences":
+        return <ConferenceTracker />
+      case "portfolio-watcher":
+        return <PortfolioWatcher />
+      default:
+        return <div>Select a tab</div>
+    }
+  }
+
   return (
     <div className="w-full space-y-4">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold">AI Hub</CardTitle>
-          <CardDescription>
-            Your personal brand OS - automated, intelligent, and highly interactive tools to elevate your online
-            presence
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
-            <TabsList className="grid grid-cols-2 md:grid-cols-5 gap-2">
-              <TabsTrigger value="dev-feed" className="flex items-center gap-2">
-                <Bot className="h-4 w-4" />
-                <span className="hidden md:inline">Dev Feed</span>
-              </TabsTrigger>
-              <TabsTrigger value="visitors" className="flex items-center gap-2">
-                <Users className="h-4 w-4" />
-                <span className="hidden md:inline">Visitors</span>
-              </TabsTrigger>
-              <TabsTrigger value="mentorship" className="flex items-center gap-2">
-                <Lightbulb className="h-4 w-4" />
-                <span className="hidden md:inline">Mentorship</span>
-              </TabsTrigger>
-              <TabsTrigger value="landing-page" className="flex items-center gap-2">
-                <Rocket className="h-4 w-4" />
-                <span className="hidden md:inline">Landing Page</span>
-              </TabsTrigger>
-              <TabsTrigger value="idea-incubator" className="flex items-center gap-2">
-                <FlaskConical className="h-4 w-4" />
-                <span className="hidden md:inline">Ideas</span>
-              </TabsTrigger>
-              <TabsTrigger value="tutorials" className="flex items-center gap-2">
-                <Video className="h-4 w-4" />
-                <span className="hidden md:inline">Tutorials</span>
-              </TabsTrigger>
-              <TabsTrigger value="skill-graph" className="flex items-center gap-2">
-                <Network className="h-4 w-4" />
-                <span className="hidden md:inline">Skills</span>
-              </TabsTrigger>
-              <TabsTrigger value="networking" className="flex items-center gap-2">
-                <Radio className="h-4 w-4" />
-                <span className="hidden md:inline">Networking</span>
-              </TabsTrigger>
-              <TabsTrigger value="conferences" className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                <span className="hidden md:inline">Events</span>
-              </TabsTrigger>
-              <TabsTrigger value="portfolio-watcher" className="flex items-center gap-2">
-                <Eye className="h-4 w-4" />
-                <span className="hidden md:inline">Watcher</span>
-              </TabsTrigger>
-            </TabsList>
+      <h2 className="text-2xl font-bold">AI Hub</h2>
+      <p className="text-muted-foreground">
+        Your personal AI assistant for portfolio management, career growth, and content creation.
+      </p>
 
-            <TabsContent value="dev-feed" className="space-y-4">
-              <PersonalDevFeed />
-            </TabsContent>
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <TabsList className="grid grid-cols-2 md:grid-cols-5 gap-2">
+          {tabs.map((tab) => (
+            <TabsTrigger key={tab.id} value={tab.id} className="text-xs md:text-sm">
+              {tab.label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
 
-            <TabsContent value="visitors" className="space-y-4">
-              <PortfolioVisitorTracker />
-            </TabsContent>
-
-            <TabsContent value="mentorship" className="space-y-4">
-              <AIMentorshipAssistant />
-            </TabsContent>
-
-            <TabsContent value="landing-page" className="space-y-4">
-              <ProjectLandingPageBuilder />
-            </TabsContent>
-
-            <TabsContent value="idea-incubator" className="space-y-4">
-              <IdeaIncubator />
-            </TabsContent>
-
-            <TabsContent value="tutorials" className="space-y-4">
-              <AutoTutorialCreator />
-            </TabsContent>
-
-            <TabsContent value="skill-graph" className="space-y-4">
-              <SkillGraph />
-            </TabsContent>
-
-            <TabsContent value="networking" className="space-y-4">
-              <NetworkingRadar />
-            </TabsContent>
-
-            <TabsContent value="conferences" className="space-y-4">
-              <ConferenceTracker />
-            </TabsContent>
-
-            <TabsContent value="portfolio-watcher" className="space-y-4">
-              <PortfolioWatcher />
-            </TabsContent>
-          </Tabs>
-        </CardContent>
-      </Card>
+        <div className="mt-6">{renderTabContent(activeTab)}</div>
+      </Tabs>
     </div>
   )
 }

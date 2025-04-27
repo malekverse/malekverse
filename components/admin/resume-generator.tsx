@@ -296,12 +296,5 @@ export function ResumeGenerator() {
                 Download as DOCX
               </Button>
               <Button variant="outline" className="w-full">
-                <ArrowDown className="mr-2 h-4 w-4" />
-                Export as Plain Text
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </div>
-  )}
+                <ArrowDown className="mr-2 h-4 w-4\
+\

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
@@ -20,11 +20,11 @@ export function Hero() {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9])
 
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: "#", label: "Facebook" },
-    { icon: <Instagram size={20} />, href: "#", label: "Instagram" },
-    { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
-    { icon: <Github size={20} />, href: "#", label: "GitHub" },
+    { icon: <Facebook size={20} />, href: "https://www.facebook.com/malekmaghraoui.official", label: "Facebook" },
+    { icon: <Instagram size={20} />, href: "https://www.instagram.com/malek_maghraoui", label: "Instagram" },
+    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/malek-maghraoui", label: "LinkedIn" },
+    // { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
+    { icon: <Github size={20} />, href: "https://github.com/maghraoui3", label: "GitHub" },
   ]
 
   // Floating elements for better UI/UX
@@ -35,6 +35,24 @@ export function Hero() {
     { top: "75%", right: "10%", size: 6, delay: 1.5, duration: 3.5 },
     { top: "40%", left: "20%", size: 14, delay: 2, duration: 6 },
   ]
+
+  // Add this at the beginning of the component, after the existing useEffect hooks
+  useEffect(() => {
+    const handleResize = () => {
+      const scrollIndicator = document.querySelector(".scroll-indicator")
+      if (scrollIndicator) {
+        if (window.innerHeight < 700) {
+          scrollIndicator.classList.add("hidden")
+        } else {
+          scrollIndicator.classList.remove("hidden")
+        }
+      }
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   return (
     <motion.section
@@ -72,16 +90,21 @@ export function Hero() {
         <div className="order-2 md:order-1">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              <TextReveal text="Welcome to the" className="text-gray-900 dark:text-white" />
+              <TextReveal text="Welcome to the" className="text-gray-900 dark:text-gray-100" />
               <span className="block mt-2">
                 <TextReveal
                   text="Malekverse"
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-purple-600 font-extrabold"
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-purple-500 font-extrabold"
                 />
               </span>
             </h1>
             <h2 className="text-xl md:text-2xl mb-6">
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }}>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                className="text-gray-800 dark:text-gray-200"
+              >
                 Exploring the cosmos of <span className="font-semibold text-teal-500">web development</span>
               </motion.span>
             </h2>
@@ -121,6 +144,7 @@ export function Hero() {
                 <motion.a
                   key={index}
                   href={link.href}
+                  target={'_blank'}
                   className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
                   aria-label={link.label}
                   initial={{ opacity: 0, y: 20 }}
@@ -183,13 +207,13 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="absolute bottom-10 left-0 right-0 flex justify-center"
+        className="absolute bottom-10 left-0 right-0 flex justify-center z-10 md:z-auto scroll-indicator"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1 }}
       >
         <div className="flex flex-col items-center">
-          <span className="text-sm text-gray-500 dark:text-gray-400 mb-2">Navigate the cosmos</span>
+          <span className="text-sm text-gray-600 dark:text-gray-300 mb-2">Navigate the cosmos</span>
           <div className="w-6 h-10 border-2 border-teal-500/50 rounded-full flex justify-center">
             <motion.div
               className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2"
