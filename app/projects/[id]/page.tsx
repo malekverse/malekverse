@@ -17,7 +17,7 @@ const projectsData = [
       "A dedicated streaming and discovery platform for Tunisian cinema, offering users free access to a curated selection of movies with no ads.",
     fullDescription:
       "TunisiaFlicks is a comprehensive platform designed to showcase and preserve Tunisian cinema heritage. The platform provides a user-friendly interface for discovering, watching, and learning about Tunisian films across different genres and eras. With features like user profiles, favorites, and curated collections, TunisiaFlicks aims to make Tunisian cinema more accessible to both local audiences and international viewers interested in North African cinema.",
-    image: "/placeholder.svg?height=600&width=1200",
+    image: "https://tunisiaflicks.vercel.app/og-image.png?height=600&width=1200",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Zustand", "Framer Motion", "JWT", "JSDOM"],
     category: "fullstack",
     demoLink: "https://github.com/maghraoui3/tunisiaflicks",

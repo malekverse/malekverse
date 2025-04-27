@@ -22,21 +22,21 @@ export function Stack() {
       title: "AI",
       tools: [
         {
-          name: "Le Chat",
+          name: "Chat-GPT",
           description: "For general assistance, content ideation, and problem-solving.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/openai.svg?height=40&width=40",
           link: "#",
         },
         {
-          name: "Cursor",
+          name: "Trae",
           description: "AI-powered code editor that helps with coding and refactoring.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/trae.jpg?height=40&width=40",
           link: "#",
         },
         {
           name: "Midjourney",
           description: "AI art generation for creative projects and illustrations.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/midjourney.png?height=40&width=40",
           link: "#",
         },
       ],
@@ -48,37 +48,37 @@ export function Stack() {
         {
           name: "TypeScript",
           description: "Primary programming language for type-safe JavaScript development.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/typescript.svg?height=40&width=40",
           link: "https://www.typescriptlang.org/",
         },
         {
           name: "Next.js",
           description: "React framework for production-grade web applications.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/next-js.svg?height=40&width=40",
           link: "https://nextjs.org/",
         },
         {
           name: "React",
           description: "JavaScript library for building user interfaces.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/react.svg?height=40&width=40",
           link: "https://reactjs.org/",
         },
         {
           name: "Node.js",
           description: "JavaScript runtime for server-side development.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/node-js.svg?height=40&width=40",
           link: "https://nodejs.org/",
         },
         {
           name: "Tailwind CSS",
           description: "Utility-first CSS framework for rapid UI development.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/tailwind-css.svg?height=40&width=40",
           link: "https://tailwindcss.com/",
         },
         {
-          name: "Prisma",
+          name: "MongoDB",
           description: "Next-generation ORM for Node.js and TypeScript.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/mongodb.svg?height=40&width=40",
           link: "https://www.prisma.io/",
         },
       ],
@@ -90,13 +90,13 @@ export function Stack() {
         {
           name: "Figma",
           description: "Collaborative interface design tool for UI/UX design.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/figma.svg?height=40&width=40",
           link: "https://www.figma.com/",
         },
         {
           name: "Framer",
           description: "Interactive design and prototyping tool.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/framer.svg?height=40&width=40",
           link: "https://www.framer.com/",
         },
       ],
@@ -108,13 +108,13 @@ export function Stack() {
         {
           name: "VS Code",
           description: "Powerful code editor with extensive plugin ecosystem.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/vscode.svg?height=40&width=40",
           link: "https://code.visualstudio.com/",
         },
         {
           name: "Notion",
           description: "All-in-one workspace for notes, tasks, and project management.",
-          logo: "/placeholder.svg?height=40&width=40",
+          logo: "/src/stack/notion.svg?height=40&width=40",
           link: "https://www.notion.so/",
         },
       ],
@@ -164,15 +164,16 @@ export function Stack() {
                     <Card className="overflow-hidden border border-gray-200 dark:border-gray-800 hover:shadow-lg transition-all duration-300 dark:bg-navy-500/50 h-full">
                       <CardContent className="p-6">
                         <div className="flex items-start gap-4">
-                          <div className="relative w-10 h-10 flex-shrink-0">
+                          <div className="relative w-10 h-10 flex-shrink-0 bg-white rounded-md flex items-center justify-center">
                             <Image
                               src={tool.logo || "/placeholder.svg"}
                               alt={tool.name}
                               width={40}
                               height={40}
-                              className="object-contain"
+                              className="object-contain p-2 rounded-lg"
                             />
                           </div>
+
                           <div className="flex-1">
                             <div className="flex items-center gap-1">
                               <h4 className="font-medium text-gray-900 dark:text-white">{tool.name}</h4>
