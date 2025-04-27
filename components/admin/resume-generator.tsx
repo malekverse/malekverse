@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowDown, Download, LinkIcon, Save, Share } from "lucide-react"
+import { ArrowDown, Download, LinkIcon, Save, Share, Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -296,5 +296,43 @@ export function ResumeGenerator() {
                 Download as DOCX
               </Button>
               <Button variant="outline" className="w-full">
-                <ArrowDown className="mr-2 h-4 w-4\
-\
+                <ArrowDown className="mr-2 h-4 w-4" />
+                Download as Plain Text
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle>Resume Preview</CardTitle>
+            <CardDescription>
+              Preview how your resume will look with the selected template
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="border rounded-md p-6 min-h-[800px]">
+              {/* Resume preview content would go here */}
+              <div className="space-y-6">
+                {resumeSections.personal.visible && (
+                  <div className="space-y-2">
+                    <h2 className="text-2xl font-bold">{resumeSections.personal.name}</h2>
+                    <p className="text-gray-500">{resumeSections.personal.title}</p>
+                    <div className="flex flex-wrap gap-3 text-sm">
+                      <span>{resumeSections.personal.location}</span>
+                      <span>•</span>
+                      <span>{resumeSections.personal.email}</span>
+                      <span>•</span>
+                      <span>{resumeSections.personal.phone}</span>
+                    </div>
+                    <p className="mt-2">{resumeSections.personal.summary}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
+}
