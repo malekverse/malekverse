@@ -23,7 +23,7 @@ export function ThemeToggle() {
       variant="outline"
       size="icon"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="w-9 h-9 rounded-full"
+      className="w-9 h-9 rounded-full dark:text-gray-200"
       aria-label="Toggle theme"
     >
       <motion.div

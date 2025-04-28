@@ -10,7 +10,7 @@ import { About } from "@/components/sections/about"
 import { Work } from "@/components/sections/work"
 import { Projects } from "@/components/sections/projects"
 import { Stack } from "@/components/sections/stack"
-import { Music } from "@/components/sections/music"
+// import { Music } from "@/components/sections/music"
 import { Contact } from "@/components/sections/contact"
 import { CosmicBackground } from "@/components/cosmic-background"
 import { CustomCursor } from "@/components/ui/custom-cursor"
@@ -86,7 +86,7 @@ export default function Home() {
               <Work />
               <Projects />
               <Stack />
-              <Music />
+              {/* <Music /> */}
               <Contact />
             </div>
 

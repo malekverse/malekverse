@@ -21,9 +21,11 @@ export function Projects() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100])
 
   const [activeFilter, setActiveFilter] = useState("all")
-  // Implement the "View All Projects" and "Hide Projects" functionality
   // Add state to track expanded projects view
   const [showAllProjects, setShowAllProjects] = useState(false)
+  
+  // Reference to the Tabs component to ensure it stays in sync with activeFilter
+  const [tabsValue, setTabsValue] = useState("all")
 
   const projects = [
     {
@@ -87,12 +89,8 @@ export function Projects() {
 
   // Update the handleViewAllProjects function
   const handleViewAllProjects = () => {
-    setShowAllProjects(!showAllProjects)
-    // Scroll to projects section
-    const projectsSection = document.getElementById("projects")
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: "smooth" })
-    }
+    // Navigate to the projects page instead of toggling visibility
+    window.location.href = "/projects"
   }
 
   // Update the projects display logic
@@ -116,15 +114,33 @@ export function Projects() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Tabs defaultValue="all" className="w-full max-w-md">
+            <Tabs value={tabsValue} defaultValue="all" className="w-full max-w-md">
               <TabsList className="grid grid-cols-3 mb-8">
-                <TabsTrigger value="all" onClick={() => setActiveFilter("all")}>
+                <TabsTrigger 
+                  value="all" 
+                  onClick={() => {
+                    setActiveFilter("all")
+                    setTabsValue("all")
+                  }}
+                >
                   All
                 </TabsTrigger>
-                <TabsTrigger value="fullstack" onClick={() => setActiveFilter("fullstack")}>
+                <TabsTrigger 
+                  value="fullstack" 
+                  onClick={() => {
+                    setActiveFilter("fullstack")
+                    setTabsValue("fullstack")
+                  }}
+                >
                   Full Stack
                 </TabsTrigger>
-                <TabsTrigger value="ai" onClick={() => setActiveFilter("ai")}>
+                <TabsTrigger 
+                  value="ai" 
+                  onClick={() => {
+                    setActiveFilter("ai")
+                    setTabsValue("ai")
+                  }}
+                >
                   AI Projects
                 </TabsTrigger>
               </TabsList>
@@ -229,7 +245,7 @@ export function Projects() {
         <div className="flex justify-center mt-12">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button className="bg-teal-500 hover:bg-teal-600" onClick={handleViewAllProjects}>
-              {showAllProjects ? "Hide Projects" : "View All Projects"}
+              View All Projects
             </Button>
           </motion.div>
         </div>
