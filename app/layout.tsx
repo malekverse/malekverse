@@ -1,48 +1,17 @@
 import type React from "react"
-import type { Metadata } from "next"
 import { Inter, Geist as Geist_Sans } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { generateMetadata as baseGenerateMetadata, generatePersonStructuredData } from "./metadata"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const geist = Geist_Sans({ subsets: ["latin"], variable: "--font-geist" })
 
-export const metadata: Metadata = {
-  title: "Malekverse | Full Stack Developer & Design Engineer",
-  description:
-    "Welcome to the Malekverse - A cosmic journey through code, design, and creative innovation. Explore the portfolio of Malek Maghraoui, a full-stack developer specializing in Next.js, React, and modern web technologies.",
-  keywords: [
-    "web developer",
-    "full stack developer",
-    "Next.js",
-    "React",
-    "TypeScript",
-    "portfolio",
-    "Malek Maghraoui",
-    "UI/UX",
-    "frontend",
-    "backend",
-  ],
-  authors: [{ name: "Malek Maghraoui" }],
-  creator: "Malek Maghraoui",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://malekverse.com",
-    title: "Malekverse | Full Stack Developer & Design Engineer",
-    description: "Welcome to the Malekverse - A cosmic journey through code, design, and creative innovation.",
-    siteName: "Malekverse",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Malekverse | Full Stack Developer & Design Engineer",
-    description: "Welcome to the Malekverse - A cosmic journey through code, design, and creative innovation.",
-    creator: "@malekmaghraoui",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+// Generate metadata for the root layout
+export const generateMetadata = () => {
+  return baseGenerateMetadata({
+    structuredData: generatePersonStructuredData(),
+  })
 }
 
 export default function RootLayout({
@@ -54,6 +23,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://malekverse.com" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${inter.variable} ${geist.variable} font-sans antialiased`}>
         <ThemeProvider
