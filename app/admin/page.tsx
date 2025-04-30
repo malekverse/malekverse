@@ -55,7 +55,7 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {isAuthenticated ? <AdminDashboard onLogout={handleLogout} /> : <LoginForm onLogin={handleLogin} />}
+      {/* {isAuthenticated ? <AdminDashboard onLogout={handleLogout} /> : <LoginForm onLogin={handleLogin} />} */}
     </div>
   )
 }
