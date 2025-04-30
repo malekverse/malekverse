@@ -33,7 +33,7 @@ export function Projects() {
       title: "TunisiaFlicks",
       description:
         "A dedicated streaming and discovery platform for Tunisian cinema, offering users free access to a curated selection of movies with no ads.",
-      image: "/placeholder.svg?height=300&width=600",
+      image: "/src/projects/tunisiaflicks/thumbnail.png?height=300&width=600",
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Zustand", "Framer Motion"],
       category: "fullstack",
       demoLink: "https://github.com/maghraoui3/tunisiaflicks",
@@ -51,7 +51,7 @@ export function Projects() {
       title: "Lead Insight",
       description:
         "AI-Powered Instagram Lead Management Platform designed to help marketers upload, analyze, score, and manage Instagram leads efficiently using AI and advanced filtering.",
-      image: "/placeholder.svg?height=300&width=600",
+      image: "/src/projects/lead-insight/thumbnail.png?height=300&width=600",
       tags: ["Next.js", "React", "TypeScript", "MongoDB", "OpenAI API", "Groq SDK", "Tailwind CSS"],
       category: "ai",
       demoLink: "#",
@@ -69,7 +69,7 @@ export function Projects() {
       title: "IPSAS University Platform",
       description:
         "A full-stack web platform for IPSAS University developed during a hackathon, designed to centralize access to university resources and services.",
-      image: "/placeholder.svg?height=300&width=600",
+      image: "/src/projects/ipsas-university/thumbnail.png?height=300&width=600",
       tags: ["React.js", "Next.js", "Tailwind CSS", "MongoDB", "Framer Motion", "Ethereum"],
       category: "fullstack",
       demoLink: "https://ipsas.vercel.app",

@@ -17,7 +17,7 @@ const projectsData = [
       "A dedicated streaming and discovery platform for Tunisian cinema, offering users free access to a curated selection of movies with no ads.",
     fullDescription:
       "TunisiaFlicks is a comprehensive platform designed to showcase and preserve Tunisian cinema heritage. The platform provides a user-friendly interface for discovering, watching, and learning about Tunisian films across different genres and eras. With features like user profiles, favorites, and curated collections, TunisiaFlicks aims to make Tunisian cinema more accessible to both local audiences and international viewers interested in North African cinema.",
-    image: "https://tunisiaflicks.vercel.app/og-image.png?height=600&width=1200",
+    image: "/src/projects/tunisiaflicks/thumbnail.png?height=600&width=1200",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Zustand", "Framer Motion", "JWT", "JSDOM"],
     category: "fullstack",
     demoLink: "https://github.com/maghraoui3/tunisiaflicks",
@@ -68,7 +68,7 @@ const projectsData = [
       "AI-Powered Instagram Lead Management Platform designed to help marketers upload, analyze, score, and manage Instagram leads efficiently using AI and advanced filtering.",
     fullDescription:
       "Lead Insight is a sophisticated lead management system specifically designed for Instagram marketers. The platform leverages artificial intelligence to analyze and score potential leads based on their profile data, engagement metrics, and business relevance. Users can upload batches of Instagram accounts, apply keyword filtering, and generate personalized outreach messages, all within an intuitive dashboard interface.",
-    image: "/placeholder.svg?height=600&width=1200",
+    image: "/src/projects/lead-insight/backdrop.png?height=600&width=1200",
     tags: [
       "Next.js",
       "React",
@@ -131,7 +131,7 @@ const projectsData = [
       "A full-stack web platform for IPSAS University developed during a hackathon, designed to centralize access to university resources and services.",
     fullDescription:
       "The IPSAS University Platform was developed during an intensive hackathon to address the need for a centralized digital hub for university resources. The platform combines modern web technologies with innovative features like blockchain-based certification and AI assistance to create a comprehensive solution for students, faculty, and administrators. Despite the time constraints of the hackathon environment, the project delivered a fully functional platform with a focus on user experience and technical innovation.",
-    image: "/placeholder.svg?height=600&width=1200",
+    image: "/src/projects/ipsas-university/backdrop.png?height=600&width=1200",
     tags: ["React.js", "Next.js", "Tailwind CSS", "MongoDB", "Framer Motion", "Ethereum", "AI Chatbot"],
     category: "fullstack",
     demoLink: "https://ipsas.vercel.app",
