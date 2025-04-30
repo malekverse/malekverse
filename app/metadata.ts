@@ -14,19 +14,24 @@ type MetadataProps = {
 };
 
 export function generateMetadata({
-  title = 'Malekverse | Full Stack Developer & Design Engineer',
-  description = 'Welcome to the Malekverse - A cosmic journey through code, design, and creative innovation. Explore the portfolio of Malek Maghraoui, a full-stack developer specializing in Next.js, React, and modern web technologies.',
+  title = 'Malekverse | Malek Maghraoui - Full Stack Developer & Design Engineer',
+  description = 'Welcome to the Malekverse - A cosmic journey through code, design, and creative innovation. Explore the portfolio of Malek Maghraoui, a full-stack developer specializing in Next.js, React, TypeScript, and modern web technologies. Discover innovative projects, technical expertise, and professional experience.',
   keywords = [
     'web developer',
     'full stack developer',
-    'Next.js',
-    'React',
-    'TypeScript',
-    'portfolio',
+    'Next.js developer',
+    'React expert',
+    'TypeScript specialist',
+    'portfolio website',
     'Malek Maghraoui',
-    'UI/UX',
-    'frontend',
-    'backend',
+    'UI/UX designer',
+    'frontend development',
+    'backend development',
+    'software engineer',
+    'web applications',
+    'responsive design',
+    'modern web technologies',
+    'JavaScript developer',
   ],
   ogImage = '/thumbnail.png',
   ogType = 'website',
@@ -109,10 +114,23 @@ export function generatePersonStructuredData() {
     sameAs: [
       'https://github.com/maghraoui3',
       'https://linkedin.com/in/malekmaghraoui',
-      // Add other social profiles here
+      'https://www.facebook.com/malekmaghraoui.official',
+      'https://www.instagram.com/malek_maghraoui'
     ],
-    description: 'Full Stack Developer specializing in Next.js, React, and modern web technologies.',
-    knowsAbout: ['Web Development', 'UI/UX Design', 'JavaScript', 'TypeScript', 'React', 'Next.js'],
+    description: 'Full Stack Developer and Design Engineer specializing in Next.js, React, TypeScript, and modern web technologies. Creating innovative web solutions with a focus on user experience and performance.',
+    knowsAbout: [
+      'Web Development',
+      'UI/UX Design',
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'Next.js',
+      'Frontend Development',
+      'Backend Development',
+      'Responsive Design',
+      'Web Performance',
+      'SEO Optimization'
+    ],
   };
 }
 
