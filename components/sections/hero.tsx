@@ -213,7 +213,7 @@ export function Hero() {
         transition={{ duration: 0.5, delay: 1 }}
       >
         <div className="flex flex-col items-center">
-          <span className="text-sm text-gray-600 dark:text-gray-300 mb-2">Navigate the cosmos</span>
+          <span className="text-sm text-gray-600 dark:text-gray-300 mb-2 hidden sm:block">Navigate the cosmos</span>
           <div className="w-6 h-10 border-2 border-teal-500/50 rounded-full flex justify-center">
             <motion.div
               className="w-1.5 h-1.5 bg-teal-400 rounded-full mt-2"

@@ -107,7 +107,7 @@ export function Projects() {
           </p>
         </FadeIn>
 
-        <div className="mb-8 flex justify-center">
+        {/* <div className="mb-8 flex justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +146,7 @@ export function Projects() {
               </TabsList>
             </Tabs>
           </motion.div>
-        </div>
+        </div> */}
 
         {/* Update the grid of projects */}
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -212,7 +212,7 @@ export function Projects() {
                       ))}
                     </ul>
                   </CardContent>
-                  <CardFooter className="flex flex-col gap-4 pt-0 border-t border-gray-200 dark:border-gray-800 mt-auto">
+                  <CardFooter className="flex flex-col gap-4 pt-4 border-t border-gray-200 dark:border-gray-800 mt-auto">
                     <div className="flex flex-wrap gap-2 w-full">
                       {project.tags.slice(0, 4).map((tag, i) => (
                         <Badge key={i} variant="outline" className="bg-teal-500/10 text-teal-500 border-teal-500/20">
@@ -242,13 +242,13 @@ export function Projects() {
         </StaggerContainer>
 
         {/* Update the button at the bottom */}
-        <div className="flex justify-center mt-12">
+        {/* <div className="flex justify-center mt-12">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button className="bg-teal-500 hover:bg-teal-600" onClick={handleViewAllProjects}>
               View All Projects
             </Button>
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

@@ -46,18 +46,18 @@ const projectsData = [
     screenshots: [
       {
         title: "Homepage",
-        image: "/placeholder.svg?height=400&width=800",
+        image: "/src/projects/tunisiaflicks/screenshots/homepage.png?height=400&width=800",
         description: "The main landing page showcasing featured films and categories",
       },
       {
         title: "Movie Details",
-        image: "/placeholder.svg?height=400&width=800",
+        image: "/src/projects/tunisiaflicks/screenshots/moviedetails.png?height=400&width=800",
         description: "Detailed view of a selected movie with information and viewing options",
       },
       {
-        title: "User Dashboard",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "Personalized user dashboard showing saved films and preferences",
+        title: "User Profile",
+        image: "/src/projects/tunisiaflicks/screenshots/userprofile.png?height=400&width=800",
+        description: "A personalized profile page displaying saved films, user preferences, and activity history",
       },
     ],
   },
@@ -338,7 +338,7 @@ export default function ProjectDetails() {
                 transition={{ duration: 0.5, delay: 0.1 * i }}
                 className="bg-white/5 dark:bg-navy-500/50 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800"
               >
-                <div className="relative h-48 w-full">
+                <div className="relative h-60 w-full">
                   <Image
                     src={screenshot.image || "/placeholder.svg"}
                     alt={screenshot.title}
