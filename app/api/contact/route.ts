@@ -129,21 +129,9 @@ const generateAdminEmailTemplate = (data: {
           position: relative;
           overflow: hidden;
         }
-        .stars {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 0;
-        }
-        .star {
-          position: absolute;
-          background-color: white;
-          width: 2px;
-          height: 2px;
-          border-radius: 50%;
-          opacity: 0.8;
+        .logo {
+          max-width: 150px;
+          margin-bottom: 15px;
         }
         .header h1 {
           margin: 0;
@@ -193,23 +181,15 @@ const generateAdminEmailTemplate = (data: {
           .content {
             padding: 20px 15px;
           }
+          .logo {
+            max-width: 120px;
+          }
         }
       </style>
     </head>
     <body>
       <div class="container">
         <div class="header">
-          <div class="stars">
-            <div class="star" style="top: 20%; left: 10%;"></div>
-            <div class="star" style="top: 15%; left: 20%;"></div>
-            <div class="star" style="top: 25%; left: 30%;"></div>
-            <div class="star" style="top: 10%; left: 40%;"></div>
-            <div class="star" style="top: 30%; left: 50%;"></div>
-            <div class="star" style="top: 20%; left: 60%;"></div>
-            <div class="star" style="top: 15%; left: 70%;"></div>
-            <div class="star" style="top: 25%; left: 80%;"></div>
-            <div class="star" style="top: 10%; left: 90%;"></div>
-          </div>
           <h1>New Contact Form Submission</h1>
           <p>You've received a new message from your portfolio website</p>
         </div>
@@ -279,21 +259,9 @@ const generateUserEmailTemplate = async (data: {
           position: relative;
           overflow: hidden;
         }
-        .stars {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 0;
-        }
-        .star {
-          position: absolute;
-          background-color: white;
-          width: 2px;
-          height: 2px;
-          border-radius: 50%;
-          opacity: 0.8;
+        .logo {
+          max-width: 150px;
+          margin-bottom: 15px;
         }
         .header h1 {
           margin: 0;
@@ -345,29 +313,18 @@ const generateUserEmailTemplate = async (data: {
           margin-top: 15px;
           font-weight: 500;
         }
-        .button:active{
-            color: white;
+        .button:active,
+        .button:link,
+        .button:visited {
+          color: white;
         }
-        .button:link{
-            color: white;
+        .signature {
+          margin-top: 25px;
+          padding-top: 15px;
+          border-top: 1px solid #e5e7eb;
+          font-style: normal;
         }
-        .button:visited{
-            color: white;
-        }
-        .stars {
-          position: relative;
-          height: 100px;
-          overflow: hidden;
-          margin-bottom: -50px;
-        }
-        .star {
-          position: absolute;
-          background-color: white;
-          width: 2px;
-          height: 2px;
-          border-radius: 50%;
-          opacity: 0.8;
-        }
+        /* Removed .signature img styling as logo is now in header */
         @media (max-width: 600px) {
           body {
             padding: 10px;
@@ -378,23 +335,15 @@ const generateUserEmailTemplate = async (data: {
           .content {
             padding: 20px 15px;
           }
+          .logo {
+            max-width: 120px;
+          }
         }
       </style>
     </head>
     <body>
       <div class="container">
         <div class="header">
-          <div class="stars">
-            <div class="star" style="top: 20%; left: 10%;"></div>
-            <div class="star" style="top: 15%; left: 20%;"></div>
-            <div class="star" style="top: 25%; left: 30%;"></div>
-            <div class="star" style="top: 10%; left: 40%;"></div>
-            <div class="star" style="top: 30%; left: 50%;"></div>
-            <div class="star" style="top: 20%; left: 60%;"></div>
-            <div class="star" style="top: 15%; left: 70%;"></div>
-            <div class="star" style="top: 25%; left: 80%;"></div>
-            <div class="star" style="top: 10%; left: 90%;"></div>
-          </div>
           <h1>Thank You for Your Message</h1>
           <p>I appreciate you reaching out</p>
         </div>
