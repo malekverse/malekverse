@@ -12,7 +12,7 @@ export function Footer() {
       { icon: <Instagram size={20} />, href: "https://www.instagram.com/malek_maghraoui", label: "Instagram" },
       { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/malek-maghraoui", label: "LinkedIn" },
       // { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
-      { icon: <Github size={20} />, href: "https://github.com/maghraoui3", label: "GitHub" },
+      { icon: <Github size={20} />, href: "https://github.com/malekverse", label: "GitHub" },
     ]
 
   return (

@@ -5,6 +5,7 @@ import type React from "react"
 import { useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Mail, Phone, MapPin, Send, MessageSquare, ArrowRight } from "lucide-react"
+import { ContactFormError } from "@/components/contact/contact-form-error"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -30,32 +31,59 @@ export function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
+  const [formError, setFormError] = useState<{ message: string; details?: string } | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setFormError(null)
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setFormSuccess(true)
-      setFormState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
+    try {
+      // Send data to API route
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
       })
 
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setFormSuccess(false)
-      }, 5000)
-    }, 1500)
+      const data = await response.json()
+
+      if (response.ok) {
+        setFormSuccess(true)
+        setFormState({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormSuccess(false)
+        }, 5000)
+      } else {
+        console.error('Error sending message:', data.error)
+        setFormError({
+          message: data.error || 'Failed to send message',
+          details: data.details || 'Please try again later.'
+        })
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setFormError({
+        message: 'Failed to send message',
+        details: 'An unexpected error occurred. Please try again later.'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -109,6 +137,14 @@ export function Contact() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {formError && (
+                    <ContactFormError
+                      error={formError.message}
+                      details={formError.details}
+                      onRetry={() => handleSubmit(new Event('submit') as unknown as React.FormEvent)}
+                      onDismiss={() => setFormError(null)}
+                    />
+                  )}
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
                     <Input
