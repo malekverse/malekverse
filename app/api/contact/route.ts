@@ -97,6 +97,11 @@ const generateAdminEmailTemplate = (data: {
   email: string;
   subject: string;
   message: string;
+  smartResponse?: {
+    greeting: string;
+    response: string;
+    closing: string;
+  };
 }) => {
   return `
     <!DOCTYPE html>
@@ -163,6 +168,18 @@ const generateAdminEmailTemplate = (data: {
           border: 1px solid #e5e7eb;
           margin-top: 5px;
         }
+        .section-divider {
+          margin: 30px 0;
+          border-top: 1px solid #e5e7eb;
+          padding-top: 20px;
+        }
+        .ai-response {
+          background-color: #f0f9ff;
+          border-left: 4px solid #0ea5e9;
+          padding: 15px;
+          border-radius: 0 6px 6px 0;
+          margin-top: 5px;
+        }
         .footer {
           text-align: center;
           padding: 20px;
@@ -207,6 +224,18 @@ const generateAdminEmailTemplate = (data: {
             <span class="field-name">Message:</span>
             <div class="message-box">${data.message.replace(/\n/g, '<br>')}</div>
           </div>
+          
+          ${data.smartResponse ? `
+          <div class="section-divider"></div>
+          <div class="field">
+            <span class="field-name">AI Response Sent to User:</span>
+            <div class="ai-response">
+              <p><strong>Greeting:</strong> ${data.smartResponse.greeting}</p>
+              <p><strong>Response:</strong> ${data.smartResponse.response}</p>
+              <p><strong>Closing:</strong> ${data.smartResponse.closing.replace(/\n/g, '<br>')}</p>
+            </div>
+          </div>
+          ` : ''}
         </div>
         <div class="footer">
           <p>This email was sent from the contact form on your portfolio website.</p>
@@ -219,14 +248,18 @@ const generateAdminEmailTemplate = (data: {
 };
 
 // Email template for user confirmation with smart response
-const generateUserEmailTemplate = async (data: {
+const generateUserEmailTemplate = (data: {
   name: string;
   email: string;
   subject: string;
   message: string;
+  smartResponse: {
+    greeting: string;
+    response: string;
+    closing: string;
+  };
 }) => {
-  // Generate smart response
-  const smartResponse = await generateSmartResponse(data);
+  // Use the provided smart response
   
   return `
     <!DOCTYPE html>
@@ -349,9 +382,9 @@ const generateUserEmailTemplate = async (data: {
         </div>
         <div class="content">
           <div class="message">
-            <p>${smartResponse.greeting}</p>
+            <p>${data.smartResponse.greeting}</p>
             
-            <p>${smartResponse.response}</p>
+            <p>${data.smartResponse.response}</p>
             
             <p>If you have any other questions or would like to discuss further, please don't hesitate to let me know.</p>
             
@@ -360,7 +393,7 @@ const generateUserEmailTemplate = async (data: {
             </p>
             
             <div class="signature">
-              <p>${smartResponse.closing.replace(/\n/g, '<br>')}</p>
+              <p>${data.smartResponse.closing.replace(/\n/g, '<br>')}</p>
             </div>
           </div>
         </div>
@@ -492,16 +525,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate user email template with smart response
-    const userEmailHtml = await generateUserEmailTemplate({ name, email, subject, message });
+    // Generate smart response first so we can use it in both emails
+    const smartResponse = await generateSmartResponse({ name, email, subject, message });
+    
+    // Generate user email template with the smart response we already created
+    const userEmailHtml = generateUserEmailTemplate({ name, email, subject, message, smartResponse });
 
-    // Send email to admin
+    // Send email to admin with both user message and AI response
     try {
       await transporter.sendMail({
         from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
         to: ['malek.magraoui3@gmail.com', 'contact@malekverse.com'],
         subject: `New Contact: ${subject}`,
-        html: generateAdminEmailTemplate({ name, email, subject, message }),
+        html: generateAdminEmailTemplate({ name, email, subject, message, smartResponse }),
       });
       
       // Send confirmation email to user
