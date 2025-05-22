@@ -25,19 +25,19 @@ export function Stack() {
           name: "Chat-GPT",
           description: "For general assistance, content ideation, and problem-solving.",
           logo: "/src/stack/openai.svg?height=40&width=40",
-          link: "#",
+          link: "https://chatgpt.com",
         },
         {
           name: "Trae",
           description: "AI-powered code editor that helps with coding and refactoring.",
           logo: "/src/stack/trae.jpg?height=40&width=40",
-          link: "#",
+          link: "https://www.trae.ai",
         },
         {
           name: "Midjourney",
           description: "AI art generation for creative projects and illustrations.",
           logo: "/src/stack/midjourney.png?height=40&width=40",
-          link: "#",
+          link: "https://www.midjourney.com",
         },
       ],
     },
@@ -79,7 +79,7 @@ export function Stack() {
           name: "MongoDB",
           description: "Next-generation ORM for Node.js and TypeScript.",
           logo: "/src/stack/mongodb.svg?height=40&width=40",
-          link: "https://www.prisma.io/",
+          link: "https://www.mongodb.com",
         },
       ],
     },
@@ -178,14 +178,14 @@ export function Stack() {
                             <div className="flex items-center gap-1">
                               <h4 className="font-medium text-gray-900 dark:text-white">{tool.name}</h4>
                               {tool.link && (
-                                <a
+                                <Link
                                   href={tool.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="text-teal-500 hover:text-teal-600 transition-colors"
                                 >
                                   <ExternalLink size={14} />
-                                </a>
+                                </Link>
                               )}
                             </div>
                             <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{tool.description}</p>
