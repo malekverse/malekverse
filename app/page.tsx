@@ -13,6 +13,7 @@ import { Stack } from "@/components/sections/stack"
 // import { Music } from "@/components/sections/music"
 import { Contact } from "@/components/sections/contact"
 import { CosmicBackground } from "@/components/cosmic-background"
+import { StarlogEntry } from "@/components/sections/starlog-entry"
 import { CustomCursor } from "@/components/ui/custom-cursor"
 import { PlanetLoader } from "@/components/planet-loader"
 import { useMobile } from "@/hooks/use-mobile"
@@ -87,6 +88,7 @@ export default function Home() {
               <Projects />
               <Stack />
               {/* <Music /> */}
+              <StarlogEntry />
               <Contact />
             </div>
 
