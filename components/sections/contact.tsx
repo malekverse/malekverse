@@ -285,12 +285,13 @@ export function Contact() {
                   </p>
                 </div>
 
-                <div className="flex">
-                  <Input placeholder="Type your message..." className="mr-2" />
-                  <Button className="bg-teal-500 hover:bg-teal-600">
-                    <Send className="h-4 w-4" />
-                  </Button>
-                </div>
+                <Button 
+                  onClick={() => document.dispatchEvent(new CustomEvent('toggle-chat'))} 
+                  className="w-full bg-teal-500 hover:bg-teal-600 mt-2"
+                >
+                  <MessageSquare className="mr-2 h-4 w-4" />
+                  Start Chatting
+                </Button>
 
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
                   You can also reach me on WhatsApp at (+216) 94 181 481
@@ -299,15 +300,6 @@ export function Contact() {
             </Card>
           </motion.div>
         </div>
-        {/* <div className="flex justify-center mt-12">
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-1 text-teal-500 hover:text-teal-600 transition-colors"
-          >
-            <span>Learn more about contacting me</span>
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div> */}
       </div>
     </section>
   )

@@ -1,11 +1,13 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
-import { Award, Calendar, GraduationCap, MapPin, User, ArrowRight } from "lucide-react"
+import { Award, Calendar, GraduationCap, MapPin, User, ArrowRight, Eye } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FadeIn, StaggerContainer, staggerItem, Parallax } from "@/components/animations/scroll-animations"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 export function About() {
   const containerRef = useRef<HTMLElement>(null)
@@ -13,6 +15,7 @@ export function About() {
     target: containerRef,
     offset: ["start end", "end start"],
   })
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100])
 
@@ -94,7 +97,7 @@ export function About() {
               </div>
             </motion.div>
 
-            <motion.div variants={staggerItem} className="mt-8">
+            <motion.div variants={staggerItem} className="mt-8 flex space-x-3">
               <Button
                 className="bg-teal-500 hover:bg-teal-600 text-white transform transition-transform hover:scale-105"
                 whileHover={{ scale: 1.05 }}
@@ -102,6 +105,38 @@ export function About() {
               >
                 Download Resume
               </Button>
+              
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                      <DialogTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="border-teal-500/30 hover:border-teal-500 hover:bg-teal-500/10 transition-colors"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Eye className="h-4 w-4 text-teal-500" />
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden">
+                        <div className="w-full h-full">
+                          <iframe 
+                            src="/resume.pdf" 
+                            className="w-full h-[80vh]" 
+                            title="CV Preview"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">
+                    <p>Fast Preview</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </motion.div>
           </StaggerContainer>
 

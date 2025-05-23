@@ -67,7 +67,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             transition={{ duration: 0.5 }}
           >
             <div className="w-10 h-10 rounded-full overflow-hidden">
-              <img src="/placeholder.svg?height=40&width=40" alt="Logo" className="w-full h-full object-cover" />
+              <img src="/malek-face.png" alt="Logo" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </Link>
@@ -93,7 +93,7 @@ export function Navbar({ activeSection }: NavbarProps) {
                   {navItems.map((item) => (
                     <Link
                       key={item.id}
-                      href={`#${item.id}`}
+                      href={`/${item.id}`}
                       className={`py-3 px-4 text-lg ${
                         activeSection === item.id ? "text-teal-400" : "text-white hover:text-teal-400"
                       } transition-colors duration-200`}
@@ -111,7 +111,7 @@ export function Navbar({ activeSection }: NavbarProps) {
             {navItems.map((item, index) => (
               <motion.div key={item.id} variants={itemVariants}>
                 <Link
-                  href={`#${item.id}`}
+                  href={`/${item.id}`}
                   className={`relative px-1 py-2 text-sm font-medium tracking-wider uppercase ${
                     activeSection === item.id ? "text-teal-400" : "text-white hover:text-teal-400"
                   } transition-colors duration-200`}

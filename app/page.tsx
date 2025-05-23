@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { AnimatePresence } from "framer-motion"
 import { CommandMenu } from "@/components/command-menu"
-import { CosmicNavbar } from "@/components/cosmic-navbar"
+import { ConditionalNavbar } from "@/components/conditional-navbar"
 import { Footer } from "@/components/footer"
 import { Hero } from "@/components/sections/hero"
 import { About } from "@/components/sections/about"
@@ -77,7 +77,7 @@ export default function Home() {
           <PlanetLoader />
         ) : (
           <>
-            <CosmicNavbar activeSection={activeSection} />
+            <ConditionalNavbar />
             <CommandMenu />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,7 +90,6 @@ export default function Home() {
               <Contact />
             </div>
 
-            <Footer />
           </>
         )}
       </AnimatePresence>

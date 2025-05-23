@@ -134,7 +134,7 @@ export function Stack() {
           <h2 className="section-heading bg-gradient-to-r from-teal-400 to-purple-500 bg-clip-text text-transparent">
             Stack
           </h2>
-          <h3 className="text-2xl md:text-3xl font-bold mt-2 mb-6 text-white">
+          <h3 className="text-2xl md:text-3xl font-bold mt-2 mb-6 text-gray-600 dark:text-gray-300">
             Tools, technology and apps I use every day.
           </h3>
         </motion.div>

@@ -1,11 +1,10 @@
 import { Stack } from "@/components/sections/stack"
-import { Header } from "@/components/header"
+import { PageWrapper } from "@/components/page-wrapper"
 import { Footer } from "@/components/footer"
 
 export default function StackPage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <PageWrapper>
       <main className="flex-grow">
         <div className="container mx-auto px-4 py-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">My Tech Stack</h1>
@@ -15,7 +14,6 @@ export default function StackPage() {
           <Stack />
         </div>
       </main>
-      <Footer />
-    </div>
+    </PageWrapper>
   )
 }

@@ -2,8 +2,12 @@ import type React from "react"
 import { Inter, Geist as Geist_Sans } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { ChatProvider } from "@/components/chat/chat-provider"
 import { generateMetadata as baseGenerateMetadata, generatePersonStructuredData } from "./metadata"
 import Script from "next/script"
+import { NavbarProvider } from "@/contexts/navbar-context"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const geist = Geist_Sans({ subsets: ["latin"], variable: "--font-geist" })
@@ -58,7 +62,12 @@ export default function RootLayout({
           disableTransitionOnChange={false}
           storageKey="portfolio-theme"
         >
-          {children}
+          <NavbarProvider>
+            {/* Navbar is conditionally rendered in page components */}
+            {children}
+            <Footer />
+            <ChatProvider />
+          </NavbarProvider>
         </ThemeProvider>
       </body>
     </html>

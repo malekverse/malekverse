@@ -7,6 +7,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowLeft, ExternalLink, Github } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { PageWrapper } from "@/components/page-wrapper"
 
 // This would typically come from a database or API
 const projectsData = [
@@ -209,7 +210,7 @@ export default function ProjectDetails() {
   }
 
   return (
-    <div className="min-h-screen bg-primary dark:bg-[#0A0E14] text-primary dark:text-white">
+    <PageWrapper>
       <div className="container mx-auto px-4 py-20">
         <Link
           href="/#projects"
@@ -365,6 +366,6 @@ export default function ProjectDetails() {
           </div>
         </motion.div>
       </div>
-    </div>
+    </PageWrapper>
   )
 }
