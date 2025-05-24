@@ -27,7 +27,7 @@ export default function AdminPage() {
     setIsLoading(true)
 
     // Simple authentication for demo purposes
-    if (username === "admin" && password === "admin") {
+    if (username === "admin" && password === "HelloWorld") {
       localStorage.setItem("admin-token", "demo-token-12345")
       setIsAuthenticated(true)
       router.push("/admin")
