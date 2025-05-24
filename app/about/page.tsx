@@ -159,16 +159,16 @@ export default function AboutPage() {
   return (
     <PageWrapper>
     <main className="min-h-screen relative">
-      <CosmicBackground />
+      {/* <CosmicBackground /> */}
 
       {/* Hero Section */}
       <div ref={containerRef} className="relative h-[70vh] flex items-center overflow-hidden">
         <motion.div className="absolute inset-0 z-0" style={{ y, opacity }}>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background z-10" />
-          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-20" />
+          <div className="absolute inset-0 bg-[url('/thumbnail-cropped-evenly.png?height=1080&width=1920')] bg-cover bg-center opacity-100" />
         </motion.div>
 
-        <div className="container mx-auto px-4 relative z-10">
+        {/* <div className="container mx-auto px-4 relative z-10">
           <FadeIn direction="up">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               <TextReveal text="About Me" />
@@ -192,7 +192,7 @@ export default function AboutPage() {
               />
             </div>
           </motion.div>
-        </div>
+        </div> */}
       </div>
 
       {/* Main Content */}

@@ -88,7 +88,7 @@ export default function Home() {
               <Projects />
               <Stack />
               {/* <Music /> */}
-              <StarlogEntry />
+              {/* <StarlogEntry /> */}
               <Contact />
             </div>
 
