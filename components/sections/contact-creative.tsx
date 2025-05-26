@@ -18,7 +18,9 @@ import {
   Check,
   Sparkles,
   RefreshCw,
+  AlertCircle,
 } from "lucide-react"
+import { ContactFormError } from "@/components/contact/contact-form-error"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -82,7 +84,7 @@ export function ContactCreative() {
   const [currentStep, setCurrentStep] = useState(0)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
-  const [formError, setFormError] = useState(false)
+  const [formError, setFormError] = useState<{ message: string; details?: string } | null>(null)
 
   const steps: FormStep[] = [
     { id: "personal", title: "Personal Info", icon: <Sun className="h-5 w-5" /> },
@@ -107,16 +109,24 @@ export function ContactCreative() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setFormError(null)
 
-    // Simulate form submission with random success/failure
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      // Send data to API route
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      })
 
-      // 90% chance of success
-      if (Math.random() > 0.1) {
+      const data = await response.json()
+
+      if (response.ok) {
         setFormSuccess(true)
         setFormState({
           name: "",
@@ -125,17 +135,28 @@ export function ContactCreative() {
           message: "",
           priority: "medium",
         })
-      } else {
-        setFormError(true)
-      }
 
-      // Reset success/error message after 5 seconds
-      setTimeout(() => {
-        setFormSuccess(false)
-        setFormError(false)
-        setCurrentStep(0)
-      }, 5000)
-    }, 2000)
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormSuccess(false)
+          setCurrentStep(0)
+        }, 5000)
+      } else {
+        console.error('Error sending message:', data.error)
+        setFormError({
+          message: data.error || 'Failed to send message',
+          details: data.details || 'Please try again later.'
+        })
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setFormError({
+        message: 'Failed to send message',
+        details: 'An unexpected error occurred. Please try again later.'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -674,40 +695,33 @@ export function ContactCreative() {
                     </motion.div>
                   )}
 
-                  {/* Error message */}
+                  {/* Form Error */}
                   {formError && (
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}
                       transition={{ duration: 0.3 }}
-                      className="text-center py-12"
+                      className="py-6"
                     >
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 260,
-                          damping: 20,
-                          delay: 0.1,
+                      <ContactFormError
+                        error={formError.message}
+                        details={formError.details}
+                        onRetry={() => {
+                          setFormError(null)
+                          setCurrentStep(2)
                         }}
-                        className="mx-auto mb-6 relative"
-                      >
-                        <div className="absolute inset-0 rounded-full bg-red-500/20 blur-xl" />
-                        <div className="relative bg-red-500/20 p-4 rounded-full border border-red-500/30 w-20 h-20 flex items-center justify-center mx-auto">
-                          <span className="text-red-500 text-3xl font-bold">!</span>
-                        </div>
-                      </motion.div>
-
-                      <h3 className="text-2xl font-bold mb-2">Oops! Something went wrong</h3>
-                      <p className="text-gray-400 mb-6">There was an error sending your message. Please try again.</p>
-
-                      <div className="flex justify-center">
+                        onDismiss={() => {
+                          setFormError(null)
+                          setCurrentStep(2)
+                        }}
+                      />
+                      
+                      <div className="flex justify-center mt-6">
                         <Button
                           type="button"
                           onClick={() => {
-                            setFormError(false)
+                            setFormError(null)
                             setCurrentStep(2)
                           }}
                           className="bg-teal-500 hover:bg-teal-600 text-navy-900"
