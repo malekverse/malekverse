@@ -5,6 +5,7 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import {
+  ArrowLeft,
   Send,
   Star,
   Sun,
@@ -23,6 +24,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
+import { FadeIn } from "@/components/animations/scroll-animations"
+import Link from "next/link"
 
 // Custom animated planet component
 const AnimatedPlanet = ({ delay = 0, size = 6, color = "#4FD1C5", className = "" }) => {
@@ -175,6 +178,17 @@ export function ContactCreative() {
       <AnimatedPlanet delay={4} size={6} color="#F56565" className="top-1/2 -left-10" />
 
       <div className="container mx-auto relative z-10">
+
+        <FadeIn className="my-5">
+          <Link
+            href="/"
+            className="inline-flex items-center text-teal-500 hover:text-teal-600 transition-colors mb-4 md:mb-0"
+          >
+            <ArrowLeft size={20} className="mr-2" />
+            Back to Home
+          </Link>
+        </FadeIn>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -182,6 +196,7 @@ export function ContactCreative() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
+          
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}

@@ -39,11 +39,11 @@ const projectsData = [
       "A dedicated streaming and discovery platform for Tunisian cinema, offering users free access to a curated selection of movies with no ads.",
     fullDescription:
       "TunisiaFlicks is a comprehensive platform designed to showcase and preserve Tunisian cinema heritage. The platform provides a user-friendly interface for discovering, watching, and learning about Tunisian films across different genres and eras. With features like user profiles, favorites, and curated collections, TunisiaFlicks aims to make Tunisian cinema more accessible to both local audiences and international viewers interested in North African cinema.",
-    image: "/placeholder.svg?height=600&width=1200",
+    image: "/src/projects/tunisiaflicks/thumbnail.png?height=600&width=1200",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Zustand", "Framer Motion", "JWT", "JSDOM"],
     category: "fullstack",
-    demoLink: "https://github.com/maghraoui3/tunisiaflicks",
-    githubLink: "https://github.com/maghraoui3/tunisiaflicks",
+    demoLink: "https://tunisiaflicks.vercel.app",
+    githubLink: "https://github.com/malekverse/tunisiaflicks",
     features: [
       "Modern, interactive UI with dark/light mode",
       "Profile dashboard with favorites and saved movies",
@@ -83,7 +83,7 @@ const projectsData = [
       },
     ],
     featured: true,
-    status: "Completed",
+    status: "In Progress",
     startDate: "2023-01-15",
     endDate: "2023-04-20",
     teamSize: 2,
@@ -97,7 +97,7 @@ const projectsData = [
       "AI-Powered Instagram Lead Management Platform designed to help marketers upload, analyze, score, and manage Instagram leads efficiently using AI and advanced filtering.",
     fullDescription:
       "Lead Insight is a sophisticated lead management system specifically designed for Instagram marketers. The platform leverages artificial intelligence to analyze and score potential leads based on their profile data, engagement metrics, and business relevance. Users can upload batches of Instagram accounts, apply keyword filtering, and generate personalized outreach messages, all within an intuitive dashboard interface.",
-    image: "/placeholder.svg?height=600&width=1200",
+    image: "/src/projects/lead-insight/thumbnail.png?height=600&width=1200",
     tags: [
       "Next.js",
       "React",
@@ -111,8 +111,8 @@ const projectsData = [
       "TanStack Table",
     ],
     category: "ai",
-    demoLink: "#",
-    githubLink: "#",
+    demoLink: null,
+    githubLink: null,
     features: [
       "Batch Lead Upload with CSV file processing",
       "AI-Powered Scoring using OpenAI API and Groq SDK",
@@ -153,8 +153,8 @@ const projectsData = [
       },
     ],
     featured: true,
-    status: "In Progress",
-    startDate: "2023-06-10",
+    status: "Completed",
+    startDate: "2025",
     endDate: null,
     teamSize: 1,
     role: "Lead Developer",
@@ -167,11 +167,11 @@ const projectsData = [
       "A full-stack web platform for IPSAS University developed during a hackathon, designed to centralize access to university resources and services.",
     fullDescription:
       "The IPSAS University Platform was developed during an intensive hackathon to address the need for a centralized digital hub for university resources. The platform combines modern web technologies with innovative features like blockchain-based certification and AI assistance to create a comprehensive solution for students, faculty, and administrators. Despite the time constraints of the hackathon environment, the project delivered a fully functional platform with a focus on user experience and technical innovation.",
-    image: "/placeholder.svg?height=600&width=1200",
+    image: "/src/projects/ipsas-university/thumbnail.png?height=600&width=1200",
     tags: ["React.js", "Next.js", "Tailwind CSS", "MongoDB", "Framer Motion", "Ethereum", "AI Chatbot"],
     category: "fullstack",
     demoLink: "https://ipsas.vercel.app",
-    githubLink: "https://github.com/maghraoui3/ipsas-hackathon",
+    githubLink: "https://github.com/malekverse/ipsas-hackathon",
     features: [
       "Responsive UI built with React.js and enhanced with Framer Motion",
       "AI-Powered Chatbot for instant academic assistance",
@@ -217,180 +217,6 @@ const projectsData = [
     teamSize: 3,
     role: "Frontend Developer & Blockchain Integration",
     complexity: 3,
-  },
-  {
-    id: "cosmic-portfolio",
-    title: "Cosmic Portfolio",
-    description:
-      "A space-themed portfolio website with interactive 3D elements and cosmic animations to showcase developer projects and skills.",
-    fullDescription:
-      "This cosmic-themed portfolio website features interactive 3D elements, particle animations, and a unique space-inspired design. The site includes custom animations, a dark mode that resembles deep space, and interactive elements that respond to user interactions. The portfolio showcases projects, skills, and professional experience in an engaging and memorable way.",
-    image: "/placeholder.svg?height=600&width=1200",
-    tags: ["React", "Three.js", "Framer Motion", "Next.js", "TypeScript", "Tailwind CSS", "GSAP", "React Three Fiber"],
-    category: "frontend",
-    demoLink: "https://cosmic-portfolio.vercel.app",
-    githubLink: "https://github.com/maghraoui3/cosmic-portfolio",
-    features: [
-      "Interactive 3D space elements using Three.js and React Three Fiber",
-      "Cosmic particle animations and stellar backgrounds",
-      "Smooth page transitions and scroll animations",
-      "Responsive design that works on all devices",
-      "Dark mode optimized for space theme",
-      "Project showcase with detailed case studies",
-      "Contact form with email integration",
-    ],
-    challenges: [
-      "Optimizing 3D elements and animations for performance across devices",
-      "Creating a cohesive cosmic theme throughout the user experience",
-      "Balancing visual effects with usability and accessibility",
-      "Implementing smooth transitions between sections and pages",
-    ],
-    outcomes: [
-      "Unique and memorable portfolio that stands out from traditional designs",
-      "Positive feedback on the immersive user experience",
-      "Improved engagement metrics compared to previous portfolio versions",
-      "Successfully showcased technical skills through the implementation itself",
-    ],
-    screenshots: [
-      {
-        title: "Home Screen",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "The cosmic-themed home screen with interactive elements",
-      },
-      {
-        title: "Projects Galaxy",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "Projects displayed as an interactive galaxy of options",
-      },
-      {
-        title: "Skills Constellation",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "Skills visualized as a constellation with connecting stars",
-      },
-    ],
-    featured: true,
-    status: "Completed",
-    startDate: "2023-02-10",
-    endDate: "2023-03-15",
-    teamSize: 1,
-    role: "Frontend Developer",
-    complexity: 4,
-  },
-  {
-    id: "ai-code-companion",
-    title: "AI Code Companion",
-    description:
-      "An AI-powered coding assistant that helps developers write better code, fix bugs, and learn new programming concepts in real-time.",
-    fullDescription:
-      "AI Code Companion is an intelligent coding assistant that integrates with popular IDEs to provide real-time code suggestions, bug detection, and educational insights. The tool uses advanced language models to understand code context, suggest improvements, and explain complex programming concepts. It supports multiple programming languages and frameworks, adapting to each developer's coding style over time.",
-    image: "/placeholder.svg?height=600&width=1200",
-    tags: ["Python", "TypeScript", "Machine Learning", "OpenAI API", "VS Code Extension", "React", "FastAPI", "Docker"],
-    category: "ai",
-    demoLink: "https://ai-code-companion.dev",
-    githubLink: "https://github.com/maghraoui3/ai-code-companion",
-    features: [
-      "Real-time code suggestions and auto-completion",
-      "Bug detection and fix recommendations",
-      "Code explanation and documentation generation",
-      "Performance optimization suggestions",
-      "Multi-language support for JavaScript, Python, Java, and more",
-      "VS Code and JetBrains IDE extensions",
-      "Personalized learning recommendations",
-    ],
-    challenges: [
-      "Developing accurate context-aware code suggestions",
-      "Optimizing API calls to maintain IDE performance",
-      "Creating a system that learns from user preferences",
-      "Balancing helpful suggestions without disrupting workflow",
-    ],
-    outcomes: [
-      "Reduced debugging time by 40% in user testing",
-      "Positive feedback from junior developers on learning features",
-      "Successfully integrated with multiple IDE environments",
-      "Growing community of users contributing to improvement",
-    ],
-    screenshots: [
-      {
-        title: "Code Suggestions",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "AI providing context-aware code suggestions in VS Code",
-      },
-      {
-        title: "Bug Detection",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "Real-time bug detection with explanation and fix options",
-      },
-      {
-        title: "Learning Mode",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "Educational mode explaining code concepts and best practices",
-      },
-    ],
-    featured: false,
-    status: "In Progress",
-    startDate: "2023-07-20",
-    endDate: null,
-    teamSize: 2,
-    role: "Backend Developer & ML Integration",
-    complexity: 5,
-  },
-  {
-    id: "blockchain-voting-system",
-    title: "Blockchain Voting System",
-    description:
-      "A secure, transparent electronic voting system built on blockchain technology to ensure tamper-proof elections and verifiable results.",
-    fullDescription:
-      "This blockchain-based voting system provides a secure and transparent platform for conducting elections of any scale. Built on Ethereum, it ensures that votes cannot be tampered with and allows voters to verify their votes were counted correctly. The system includes identity verification, anonymous voting, real-time results, and comprehensive audit trails while maintaining voter privacy.",
-    image: "/placeholder.svg?height=600&width=1200",
-    tags: ["Solidity", "Ethereum", "React", "Web3.js", "Node.js", "Express", "Smart Contracts", "Metamask"],
-    category: "blockchain",
-    demoLink: "https://secure-blockchain-voting.com",
-    githubLink: "https://github.com/maghraoui3/blockchain-voting",
-    features: [
-      "Secure voter authentication and identity verification",
-      "Anonymous voting with blockchain verification",
-      "Real-time election results and statistics",
-      "Smart contract-based election rules and execution",
-      "Voter receipt and verification system",
-      "Administrative dashboard for election management",
-      "Comprehensive audit trails and transparency features",
-    ],
-    challenges: [
-      "Balancing anonymity with verification capabilities",
-      "Ensuring accessibility for voters with varying technical knowledge",
-      "Optimizing gas costs for Ethereum transactions",
-      "Creating a secure yet user-friendly identity verification system",
-    ],
-    outcomes: [
-      "Successfully deployed for university student government elections",
-      "Achieved 99.9% uptime during peak voting periods",
-      "Reduced election costs by 60% compared to traditional methods",
-      "Increased voter participation by 25% in test elections",
-    ],
-    screenshots: [
-      {
-        title: "Voting Interface",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "User-friendly voting interface with candidate information",
-      },
-      {
-        title: "Blockchain Verification",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "Vote verification and blockchain confirmation screen",
-      },
-      {
-        title: "Results Dashboard",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "Real-time election results with interactive visualizations",
-      },
-    ],
-    featured: true,
-    status: "Completed",
-    startDate: "2022-08-15",
-    endDate: "2023-01-10",
-    teamSize: 4,
-    role: "Blockchain Developer & Project Lead",
-    complexity: 5,
   },
 ]
 
@@ -495,7 +321,7 @@ export default function ProjectsPage() {
               className="inline-flex items-center text-teal-500 hover:text-teal-600 transition-colors mb-4 md:mb-0"
             >
               <ArrowLeft size={20} className="mr-2" />
-              Back to home
+              Back to Home
             </Link>
           </FadeIn>
 
@@ -788,13 +614,13 @@ export default function ProjectsPage() {
                         className="object-cover transition-transform duration-500 hover:scale-110"
                       />
                       {project.featured && (
-                        <div className="absolute top-2 left-2">
+                        <div className="absolute bottom-2 left-2">
                           <Badge className="bg-yellow-500 text-white border-none">
                             <Star size={12} className="mr-1" /> Featured
                           </Badge>
                         </div>
                       )}
-                      <div className="absolute top-2 right-2">
+                      <div className="absolute bottom-2 right-2">
                         <Badge
                           className={`
                             ${
@@ -813,7 +639,7 @@ export default function ProjectsPage() {
                     </div>
                     <CardHeader className="pb-2">
                       <div className="flex justify-between items-start">
-                        <CardTitle className="text-xl">{project.title}</CardTitle>
+                        <CardTitle className="text-xl text-primary">{project.title}</CardTitle>
                         <div className="flex space-x-2">
                           {project.demoLink && (
                             <motion.a
@@ -870,7 +696,7 @@ export default function ProjectsPage() {
                         ))}
                       </ul>
                     </CardContent>
-                    <CardFooter className="flex flex-col gap-4 pt-0 border-t border-gray-200 dark:border-gray-800 mt-auto">
+                    <CardFooter className="flex flex-col gap-4 pt-3 border-t border-gray-200 dark:border-gray-800 mt-auto">
                       <div className="flex flex-wrap gap-2 w-full">
                         {project.tags.slice(0, 4).map((tag, i) => (
                           <Badge key={i} variant="outline" className="bg-teal-500/10 text-teal-500 border-teal-500/20">
@@ -1065,16 +891,6 @@ export default function ProjectsPage() {
             ))}
           </StaggerContainer>
         )}
-
-        <div className="flex justify-center mt-12">
-          <Link
-            href="/"
-            className="inline-flex items-center px-6 py-3 rounded-md bg-teal-500 text-white hover:bg-teal-600 transition-colors"
-          >
-            <ArrowLeft size={18} className="mr-2" />
-            Back to home
-          </Link>
-        </div>
       </div>
     </div>
     </PageWrapper>

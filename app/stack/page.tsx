@@ -3,16 +3,17 @@
 import { useState, useRef } from "react"
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ExternalLink, Search, Grid, List, Star, TrendingUp, Clock, Users } from "lucide-react"
+import { ArrowLeft, ExternalLink, Search, Grid, List, Star, TrendingUp, Clock, Users } from "lucide-react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { CosmicBackground } from "@/components/cosmic-background"
 import { CustomCursor } from "@/components/ui/custom-cursor"
 import { useMobile } from "@/hooks/use-mobile"
 import { PageWrapper } from "@/components/page-wrapper"
+import Link from "next/link"
+import { FadeIn } from "@/components/animations/scroll-animations"
 
 interface Tool {
   name: string
@@ -49,11 +50,11 @@ export default function StackPage() {
   const tools: Tool[] = [
     // AI Tools
     {
-      name: "Le Chat",
+      name: "Chat-GPT",
       description:
         "Advanced AI assistant for general assistance, content ideation, and complex problem-solving across various domains.",
-      logo: "/placeholder.svg?height=60&width=60",
-      link: "https://chat.mistral.ai/",
+      logo: "/src/stack/openai.svg?height=60&width=60",
+      link: "https://chatgpt.com",
       category: "ai",
       experience: "advanced",
       yearStarted: 2023,
@@ -65,11 +66,11 @@ export default function StackPage() {
       cons: ["Limited image generation", "No real-time data"],
     },
     {
-      name: "Cursor",
+      name: "Trae",
       description:
         "AI-powered code editor that revolutionizes development with intelligent code completion, refactoring, and pair programming.",
-      logo: "/placeholder.svg?height=60&width=60",
-      link: "https://cursor.sh/",
+      logo: "/src/stack/trae.jpg?height=60&width=60",
+      link: "https://www.trae.ai",
       category: "ai",
       experience: "expert",
       yearStarted: 2023,
@@ -84,7 +85,7 @@ export default function StackPage() {
       name: "Midjourney",
       description:
         "Leading AI art generation platform for creating stunning visuals, illustrations, and creative assets for projects.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/midjourney.png?height=60&width=60",
       link: "https://midjourney.com/",
       category: "ai",
       experience: "advanced",
@@ -102,7 +103,7 @@ export default function StackPage() {
       name: "TypeScript",
       description:
         "Strongly typed programming language that builds on JavaScript, providing better tooling and error detection.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/typescript.svg?height=60&width=60",
       link: "https://www.typescriptlang.org/",
       category: "development",
       experience: "expert",
@@ -118,7 +119,7 @@ export default function StackPage() {
       name: "Next.js",
       description:
         "The React framework for production-grade applications with built-in optimization, routing, and deployment features.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/next-js.svg?height=60&width=60",
       link: "https://nextjs.org/",
       category: "development",
       experience: "expert",
@@ -134,7 +135,7 @@ export default function StackPage() {
       name: "React",
       description:
         "A JavaScript library for building user interfaces with component-based architecture and virtual DOM.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/react.svg?height=60&width=60",
       link: "https://reactjs.org/",
       category: "development",
       experience: "expert",
@@ -149,7 +150,7 @@ export default function StackPage() {
     {
       name: "Node.js",
       description: "JavaScript runtime built on Chrome's V8 engine for building scalable server-side applications.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/node-js.svg?height=60&width=60",
       link: "https://nodejs.org/",
       category: "development",
       experience: "advanced",
@@ -165,7 +166,7 @@ export default function StackPage() {
       name: "Tailwind CSS",
       description:
         "Utility-first CSS framework for rapidly building custom user interfaces with consistent design systems.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/tailwind-css.svg?height=60&width=60",
       link: "https://tailwindcss.com/",
       category: "development",
       experience: "expert",
@@ -178,19 +179,34 @@ export default function StackPage() {
       cons: ["Learning curve", "HTML can look cluttered", "Purging complexity"],
     },
     {
-      name: "Prisma",
-      description: "Next-generation ORM for Node.js and TypeScript with type-safe database access and migrations.",
-      logo: "/placeholder.svg?height=60&width=60",
-      link: "https://www.prisma.io/",
-      category: "development",
-      experience: "advanced",
-      yearStarted: 2022,
-      rating: 4.6,
-      usageFrequency: "weekly",
-      tags: ["ORM", "Database", "TypeScript", "Migrations"],
-      features: ["Type Safety", "Auto-generated Client", "Database Migrations", "Query Builder"],
-      pros: ["Type safety", "Great DX", "Auto-completion", "Database agnostic"],
-      cons: ["Learning curve", "Performance overhead", "Limited advanced queries"],
+      name: "MongoDB",
+      description: "A popular NoSQL database known for its flexibility, scalability, and JSON-like document model.",
+      logo: "/src/stack/mongodb.svg?height=60&width=60", // Replace with actual logo path
+      link: "https://www.mongodb.com/",
+      category: "database",
+      experience: "expert",
+      yearStarted: 2019,
+      rating: 4.8,
+      usageFrequency: "daily",
+      tags: ["NoSQL", "Database", "Document", "Scalable"],
+      features: [
+        "Document-Oriented Storage",
+        "Flexible Schema",
+        "Horizontal Scaling",
+        "Built-in Replication",
+        "Powerful Query Language"
+      ],
+      pros: [
+        "Flexible schema design",
+        "High scalability",
+        "Strong community and ecosystem",
+        "Great for rapid development"
+      ],
+      cons: [
+        "Lack of strict schema enforcement",
+        "Joins can be complex or inefficient",
+        "Higher memory usage"
+      ]
     },
 
     // Design Tools
@@ -198,7 +214,7 @@ export default function StackPage() {
       name: "Figma",
       description:
         "Collaborative interface design tool for creating, prototyping, and sharing UI/UX designs in real-time.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/figma.svg?height=60&width=60",
       link: "https://www.figma.com/",
       category: "design",
       experience: "advanced",
@@ -213,7 +229,7 @@ export default function StackPage() {
     {
       name: "Framer",
       description: "Interactive design and prototyping tool for creating high-fidelity prototypes and animations.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/framer.svg?height=60&width=60",
       link: "https://www.framer.com/",
       category: "design",
       experience: "intermediate",
@@ -231,7 +247,7 @@ export default function StackPage() {
       name: "VS Code",
       description:
         "Powerful, lightweight code editor with extensive plugin ecosystem and excellent developer experience.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/vscode.svg?height=60&width=60",
       link: "https://code.visualstudio.com/",
       category: "productivity",
       experience: "expert",
@@ -247,7 +263,7 @@ export default function StackPage() {
       name: "Notion",
       description:
         "All-in-one workspace for notes, tasks, databases, and project management with powerful organization features.",
-      logo: "/placeholder.svg?height=60&width=60",
+      logo: "/src/stack/notion.svg?height=60&width=60",
       link: "https://www.notion.so/",
       category: "productivity",
       experience: "advanced",
@@ -327,10 +343,19 @@ export default function StackPage() {
     <PageWrapper>
     <main className="relative min-h-screen text-white overflow-hidden">
       {!isMobile && <CustomCursor />}
-      {/* <CosmicBackground /> */}
-
       <section ref={containerRef} className="py-20 min-h-screen">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+
+          <FadeIn className="my-5">
+            <Link
+              href="/"
+              className="inline-flex items-center text-teal-500 hover:text-teal-600 transition-colors mb-4 md:mb-0"
+            >
+              <ArrowLeft size={20} className="mr-2" />
+              Back to Home
+            </Link>
+          </FadeIn>
+
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -443,13 +468,13 @@ export default function StackPage() {
                 >
                   <CardHeader className={`${viewMode === "list" ? "flex-shrink-0 w-20" : ""}`}>
                     <div className={`flex ${viewMode === "list" ? "flex-col" : "flex-row"} items-center gap-4`}>
-                      <div className="relative w-12 h-12 flex-shrink-0">
+                      <div className="relative w-12 h-12 flex justify-center items-center flex-shrink-0 bg-primary rounded-md">
                         <Image
                           src={tool.logo || "/placeholder.svg"}
                           alt={tool.name}
                           width={48}
                           height={48}
-                          className="object-contain rounded-lg"
+                          className="object-contain rounded-lg p-1"
                         />
                       </div>
                       {viewMode === "grid" && (

@@ -3,6 +3,7 @@
 import { useState, useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import {
+  ArrowLeft,
   Briefcase,
   Calendar,
   MapPin,
@@ -26,6 +27,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { FadeIn, StaggerContainer, staggerItem } from "@/components/animations/scroll-animations"
+import Link from "next/link"
 
 export function WorkExperience() {
   const containerRef = useRef<HTMLElement>(null)
@@ -46,7 +48,7 @@ export function WorkExperience() {
       period: "December 2024 – March 2025",
       duration: "4 months",
       location: "Ariana, Tunisia",
-      status: "Current",
+      status: "Completed",
       description:
         "Leading the complete rebuild of Artify's platform using modern web technologies, focusing on performance optimization and user experience enhancement.",
       achievements: [
@@ -81,8 +83,8 @@ export function WorkExperience() {
       title: "Freelance Full-Stack Developer",
       company: "Lead Insight Platform",
       type: "Freelance Project",
-      period: "2024",
-      duration: "6 months",
+      period: "2025",
+      duration: "2 Weeks",
       location: "Remote",
       status: "Completed",
       description:
@@ -110,7 +112,7 @@ export function WorkExperience() {
       title: "Web Development Instructor",
       company: "Multiple Institutions",
       type: "Teaching & Training",
-      period: "2023 – 2024",
+      period: "2024 – 2025",
       duration: "1 year",
       location: "Tunisia",
       status: "Completed",
@@ -187,30 +189,30 @@ export function WorkExperience() {
   ]
 
   const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Project Manager at Artify",
-      content:
-        "Exceptional developer who transformed our platform. The performance improvements and modern design exceeded our expectations.",
-      rating: 5,
-      avatar: "/placeholder.svg?height=60&width=60",
-    },
-    {
-      name: "Ahmed Ben Ali",
-      role: "Student at MTC ISGI",
-      content:
-        "Best instructor I've had. Made complex concepts easy to understand and provided practical, real-world examples.",
-      rating: 5,
-      avatar: "/placeholder.svg?height=60&width=60",
-    },
-    {
-      name: "Maria Rodriguez",
-      role: "Lead Insight Client",
-      content:
-        "Delivered exactly what we needed. The AI integration was seamless and the platform is incredibly user-friendly.",
-      rating: 5,
-      avatar: "/placeholder.svg?height=60&width=60",
-    },
+    // {
+    //   name: "Sarah Johnson",
+    //   role: "Project Manager at Artify",
+    //   content:
+    //     "Exceptional developer who transformed our platform. The performance improvements and modern design exceeded our expectations.",
+    //   rating: 5,
+    //   avatar: "/placeholder.svg?height=60&width=60",
+    // },
+    // {
+    //   name: "Ahmed Ben Ali",
+    //   role: "Student at MTC ISGI",
+    //   content:
+    //     "Best instructor I've had. Made complex concepts easy to understand and provided practical, real-world examples.",
+    //   rating: 5,
+    //   avatar: "/placeholder.svg?height=60&width=60",
+    // },
+    // {
+    //   name: "Maria Rodriguez",
+    //   role: "Lead Insight Client",
+    //   content:
+    //     "Delivered exactly what we needed. The AI integration was seamless and the platform is incredibly user-friendly.",
+    //   rating: 5,
+    //   avatar: "/placeholder.svg?height=60&width=60",
+    // },
   ]
 
   const careerStats = [
@@ -222,7 +224,17 @@ export function WorkExperience() {
 
   return (
     <section ref={containerRef} className="py-20 min-h-screen">
+        
       <div className="container mx-auto px-4">
+        <FadeIn className="mb-8 mt-4">
+                    <Link
+                      href="/"
+                      className="inline-flex items-center text-teal-500 hover:text-teal-600 transition-colors mb-4 md:mb-0"
+                    >
+                      <ArrowLeft size={20} className="mr-2" />
+                      Back to Home
+                    </Link>
+                  </FadeIn> 
         {/* Hero Section */}
         <FadeIn>
           <div className="text-center mb-16">
@@ -534,7 +546,7 @@ export function WorkExperience() {
           <div className="text-center mt-16">
             <Card className="border-teal-500/20 bg-white/50 dark:bg-navy-500/50 backdrop-blur-sm max-w-2xl mx-auto">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4">Ready to Work Together?</h3>
+                <h3 className="text-2xl font-bold mb-4 text-primary">Ready to Work Together?</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">
                   Let's discuss how my experience and skills can contribute to your next project.
                 </p>
@@ -545,7 +557,7 @@ export function WorkExperience() {
                       <ChevronRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
-                  <Button size="lg" variant="outline" className="border-teal-500/20">
+                  <Button size="lg" variant="outline" className="border-teal-500/20 text-primary">
                     <Download className="mr-2 h-4 w-4" />
                     Download Resume
                   </Button>

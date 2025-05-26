@@ -213,11 +213,11 @@ export default function ProjectDetails() {
     <PageWrapper>
       <div className="container mx-auto px-4 py-20">
         <Link
-          href="/#projects"
+          href="/projects"
           className="inline-flex items-center text-teal-500 hover:text-teal-600 transition-colors mb-8"
         >
           <ArrowLeft size={20} className="mr-2" />
-          Back to projects
+          Back to Projects
         </Link>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>

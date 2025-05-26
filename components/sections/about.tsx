@@ -98,6 +98,7 @@ export function About() {
             </motion.div>
 
             <motion.div variants={staggerItem} className="mt-8 flex space-x-3">
+              <a href="/resume.pdf" download>
               <Button
                 className="bg-teal-500 hover:bg-teal-600 text-white transform transition-transform hover:scale-105"
                 whileHover={{ scale: 1.05 }}
@@ -105,7 +106,7 @@ export function About() {
               >
                 Download Resume
               </Button>
-              
+              </a>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>

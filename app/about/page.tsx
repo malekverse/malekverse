@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import {
+  ArrowLeft,
   Award,
   Calendar,
   Code2,
@@ -160,6 +161,7 @@ export default function AboutPage() {
     <PageWrapper>
     <main className="min-h-screen relative">
       {/* <CosmicBackground /> */}
+      
 
       {/* Hero Section */}
       <div ref={containerRef} className="relative h-[70vh] flex items-center overflow-hidden">
@@ -193,11 +195,27 @@ export default function AboutPage() {
             </div>
           </motion.div>
         </div> */}
+
       </div>
 
       {/* Main Content */}
       <section className="py-20">
+
+       
+
+
         <div className="container mx-auto px-4">
+
+          <FadeIn className="mb-8">
+            <Link
+              href="/"
+              className="inline-flex items-center text-teal-500 hover:text-teal-600 transition-colors mb-4 md:mb-0"
+            >
+              <ArrowLeft size={20} className="mr-2" />
+              Back to home
+            </Link>
+          </FadeIn>
+
           <div className="grid md:grid-cols-3 gap-10">
             {/* Left Column - Profile */}
             <div className="md:col-span-1">
@@ -258,14 +276,16 @@ export default function AboutPage() {
                       </motion.div>
 
                       <motion.div variants={staggerItem} className="pt-4">
-                        <Button
-                          className="w-full bg-teal-500 hover:bg-teal-600 text-white flex items-center justify-center gap-2"
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <Download size={16} />
-                          Download Resume
-                        </Button>
+                         <a href="/resume.pdf" download>
+                          <Button
+                            className="w-full bg-teal-500 hover:bg-teal-600 text-white flex items-center justify-center gap-2"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <Download size={16} />
+                            Download Resume
+                          </Button>
+                        </a>
                       </motion.div>
                     </StaggerContainer>
                   </CardContent>
@@ -500,7 +520,7 @@ export default function AboutPage() {
                               </Card>
                             </FadeIn>
 
-                            <FadeIn direction="up" delay={0.3}>
+                            {/* <FadeIn direction="up" delay={0.3}>
                               <Card className="backdrop-blur-sm bg-white/5 dark:bg-navy-500/30 border-teal-500/20">
                                 <CardContent className="p-6">
                                   <div className="flex items-center gap-3 mb-3">
@@ -515,7 +535,7 @@ export default function AboutPage() {
                                   </p>
                                 </CardContent>
                               </Card>
-                            </FadeIn>
+                            </FadeIn> */}
                           </div>
                         </div>
                       </div>
