@@ -48,7 +48,6 @@ const AnimatedPlanet = ({ delay = 0, size = 6, color = "#4FD1C5", className = ""
   )
 }
 
-
 // Form step interface
 interface FormStep {
   id: string
@@ -140,8 +139,8 @@ export function ContactCreative() {
     {
       icon: <Mail className="h-6 w-6 text-teal-500" />,
       title: "Email",
-      value: "malek.magraoui3@gmail.com",
-      link: "mailto:malek.magraoui3@gmail.com",
+      value: "contact@malekverse.com",
+      link: "mailto:contact@malekverse.com",
     },
     {
       icon: <Phone className="h-6 w-6 text-teal-500" />,
@@ -307,9 +306,9 @@ export function ContactCreative() {
             >
               {/* Form header with steps */}
               <div className="border-b border-navy-700 p-6">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center relative">
                   {steps.map((step, index) => (
-                    <div key={step.id} className="flex flex-col items-center">
+                    <div key={step.id} className="flex flex-col items-center relative z-10">
                       <div
                         className={cn(
                           "w-10 h-10 rounded-full flex items-center justify-center mb-2 transition-colors",
@@ -330,24 +329,31 @@ export function ContactCreative() {
                       >
                         {step.title}
                       </span>
-
-                      {/* Progress line */}
-                      {index < steps.length - 1 && (
-                        <div className="absolute left-0 right-0 flex justify-center">
-                          <div className="w-16 md:w-24 h-0.5 bg-navy-700 mt-5">
-                            <motion.div
-                              className="h-full bg-teal-500"
-                              initial={{ width: "0%" }}
-                              animate={{
-                                width: currentStep > index ? "100%" : "0%",
-                              }}
-                              transition={{ duration: 0.3 }}
-                            />
-                          </div>
-                        </div>
-                      )}
                     </div>
                   ))}
+
+                  {/* Progress lines - single continuous line */}
+                  <div className="absolute top-5 left-0 right-0 flex items-center -z-0">
+                    <div className="w-full flex items-center justify-between px-5">
+                      {/* First step circle spacer */}
+                      <div className="w-5"></div>
+
+                      {/* Continuous progress line */}
+                      <div className="flex-1 h-0.5 bg-navy-700 relative mx-5">
+                        <motion.div
+                          className="h-full bg-teal-500 absolute top-0 left-0"
+                          initial={{ width: "0%" }}
+                          animate={{
+                            width: currentStep >= 1 ? (currentStep >= 2 ? "105%" : "50%") : "0%",
+                          }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </div>
+
+                      {/* Last step circle spacer */}
+                      <div className="w-5"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
 

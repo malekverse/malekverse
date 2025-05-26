@@ -83,8 +83,8 @@ const projectsData = [
       "TanStack Table",
     ],
     category: "ai",
-    demoLink: "#",
-    githubLink: "#",
+    demoLink: null,
+    githubLink: null,
     features: [
       "Batch Lead Upload with CSV file processing",
       "AI-Powered Scoring using OpenAI API and Groq SDK",
@@ -110,17 +110,17 @@ const projectsData = [
     screenshots: [
       {
         title: "Dashboard Overview",
-        image: "/placeholder.svg?height=400&width=800",
+        image: "/src/projects/lead-insight/screenshots/dashboard.png?height=400&width=800",
         description: "Main dashboard showing lead metrics and batch status",
       },
       {
         title: "Lead Scoring Interface",
-        image: "/placeholder.svg?height=400&width=800",
+        image: "/src/projects/lead-insight/screenshots/leads.png?height=400&width=800",
         description: "AI-powered lead scoring and analysis view",
       },
       {
         title: "Message Template Editor",
-        image: "/placeholder.svg?height=400&width=800",
+        image: "/src/projects/lead-insight/screenshots/generated-message.png?height=400&width=800",
         description: "Custom messaging interface with AI-generated templates",
       },
     ],
@@ -161,17 +161,17 @@ const projectsData = [
     screenshots: [
       {
         title: "Homepage",
-        image: "/placeholder.svg?height=400&width=800",
+        image: "/src/projects/ipsas-university/screenshots/homepage.png?height=400&width=800",
         description: "Main landing page with university information and navigation",
       },
       {
-        title: "Resource Center",
-        image: "/placeholder.svg?height=400&width=800",
-        description: "Centralized access to academic resources and materials",
+        title: "Admin Dashboard",
+        image: "/src/projects/ipsas-university/screenshots/admin-dashboard.png?height=400&width=800",
+        description: "An admin dashboard manages university data and operations.",
       },
       {
         title: "Blockchain Certification",
-        image: "/placeholder.svg?height=400&width=800",
+        image: "/src/projects/ipsas-university/screenshots/certificates.png?height=400&width=800",
         description: "Interface for verifying academic credentials using blockchain",
       },
     ],

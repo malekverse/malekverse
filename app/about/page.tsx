@@ -120,27 +120,27 @@ export default function AboutPage() {
 
   // Testimonials data
   const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Product Manager at TechCorp",
-      content:
-        "Working with Malek was a game-changer for our project. His technical expertise combined with an eye for design resulted in a product that exceeded our expectations.",
-      avatar: "/placeholder.svg?height=80&width=80",
-    },
-    {
-      name: "Ahmed Hassan",
-      role: "CTO at StartupX",
-      content:
-        "Malek's ability to understand complex requirements and translate them into elegant solutions is remarkable. His work ethic and attention to detail make him a valuable asset to any team.",
-      avatar: "/placeholder.svg?height=80&width=80",
-    },
-    {
-      name: "Emma Rodriguez",
-      role: "UI/UX Director",
-      content:
-        "I've rarely seen someone with such a perfect balance of technical skill and design sensibility. Malek's work consistently demonstrates both innovation and usability.",
-      avatar: "/placeholder.svg?height=80&width=80",
-    },
+    // {
+    //   name: "Sarah Johnson",
+    //   role: "Product Manager at TechCorp",
+    //   content:
+    //     "Working with Malek was a game-changer for our project. His technical expertise combined with an eye for design resulted in a product that exceeded our expectations.",
+    //   avatar: "/placeholder.svg?height=80&width=80",
+    // },
+    // {
+    //   name: "Ahmed Hassan",
+    //   role: "CTO at StartupX",
+    //   content:
+    //     "Malek's ability to understand complex requirements and translate them into elegant solutions is remarkable. His work ethic and attention to detail make him a valuable asset to any team.",
+    //   avatar: "/placeholder.svg?height=80&width=80",
+    // },
+    // {
+    //   name: "Emma Rodriguez",
+    //   role: "UI/UX Director",
+    //   content:
+    //     "I've rarely seen someone with such a perfect balance of technical skill and design sensibility. Malek's work consistently demonstrates both innovation and usability.",
+    //   avatar: "/placeholder.svg?height=80&width=80",
+    // },
   ]
 
   // Stats data
@@ -205,12 +205,12 @@ export default function AboutPage() {
                 <Rotate3D className="mb-8">
                   <div className="relative w-full aspect-square max-w-md mx-auto overflow-hidden rounded-2xl border-4 border-teal-500/20">
                     <Image
-                      src="/placeholder.svg?height=600&width=600"
+                      src="/src/my-photos/profile-pic.jpg?height=600&width=600"
                       alt="Malek Maghraoui"
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-500/80 to-transparent" />
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-navy-500/80 to-transparent" /> */}
                   </div>
                 </Rotate3D>
 
@@ -223,7 +223,7 @@ export default function AboutPage() {
                         </div>
                         <div>
                           <p className="text-sm text-gray-500 dark:text-gray-400">Name</p>
-                          <p className="font-medium">Malek Maghraoui</p>
+                          <p className="font-medium text-primary">Malek Maghraoui</p>
                         </div>
                       </motion.div>
 
@@ -233,7 +233,7 @@ export default function AboutPage() {
                         </div>
                         <div>
                           <p className="text-sm text-gray-500 dark:text-gray-400">Location</p>
-                          <p className="font-medium">Ariana, Tunisia</p>
+                          <p className="font-medium text-primary">Ariana, Tunisia</p>
                         </div>
                       </motion.div>
 
@@ -243,7 +243,7 @@ export default function AboutPage() {
                         </div>
                         <div>
                           <p className="text-sm text-gray-500 dark:text-gray-400">Experience</p>
-                          <p className="font-medium">3+ Years</p>
+                          <p className="font-medium text-primary">3+ Years</p>
                         </div>
                       </motion.div>
 
@@ -253,7 +253,7 @@ export default function AboutPage() {
                         </div>
                         <div>
                           <p className="text-sm text-gray-500 dark:text-gray-400">Education</p>
-                          <p className="font-medium">Computer Science, ISIMS</p>
+                          <p className="font-medium text-primary">Computer Science, ISIMS</p>
                         </div>
                       </motion.div>
 
@@ -377,7 +377,7 @@ export default function AboutPage() {
                             <FadeIn direction="right">
                               <Card className="backdrop-blur-sm bg-white/5 dark:bg-navy-500/30 border-teal-500/20 h-full">
                                 <CardContent className="p-6">
-                                  <h4 className="text-xl font-semibold mb-3">Frontend Development</h4>
+                                  <h4 className="text-xl font-semibold mb-3 text-primary">Frontend Development</h4>
                                   <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
                                     <li>React & Next.js ecosystem</li>
                                     <li>TypeScript & JavaScript (ES6+)</li>
@@ -393,7 +393,7 @@ export default function AboutPage() {
                             <FadeIn direction="left">
                               <Card className="backdrop-blur-sm bg-white/5 dark:bg-navy-500/30 border-teal-500/20 h-full">
                                 <CardContent className="p-6">
-                                  <h4 className="text-xl font-semibold mb-3">Backend Development</h4>
+                                  <h4 className="text-xl font-semibold mb-3 text-primary">Backend Development</h4>
                                   <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
                                     <li>Node.js & Express</li>
                                     <li>RESTful API design</li>
@@ -655,16 +655,18 @@ export default function AboutPage() {
                                 I'm always open to discussing new projects, creative ideas, or opportunities to be part
                                 of your vision. Let's create something amazing together!
                               </p>
-                              <Link href="/contact">
-                                <Button
-                                  className="bg-teal-500 hover:bg-teal-600 text-white px-6 py-2 flex items-center gap-2"
-                                  whileHover={{ scale: 1.05 }}
-                                  whileTap={{ scale: 0.95 }}
-                                >
-                                  <Send size={16} />
-                                  Get in Touch
-                                </Button>
-                              </Link>
+                              <div className="flex justify-center">
+                                <Link href="/contact">
+                                  <Button
+                                    className="bg-teal-500 hover:bg-teal-600 text-white px-6 py-2 flex items-center gap-2"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                  >
+                                    <Send size={16} />
+                                    Get in Touch
+                                  </Button>
+                                </Link>
+                              </div>
                             </CardContent>
                           </Card>
                         </div>

@@ -36,7 +36,7 @@ export function Projects() {
       image: "/src/projects/tunisiaflicks/thumbnail.png?height=300&width=600",
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Zustand", "Framer Motion"],
       category: "fullstack",
-      demoLink: "https://github.com/maghraoui3/tunisiaflicks",
+      demoLink: "https://tunisiaflicks.vercel.app",
       githubLink: "https://github.com/maghraoui3/tunisiaflicks",
       features: [
         "Modern, interactive UI with dark/light mode",
@@ -54,8 +54,8 @@ export function Projects() {
       image: "/src/projects/lead-insight/thumbnail.png?height=300&width=600",
       tags: ["Next.js", "React", "TypeScript", "MongoDB", "OpenAI API", "Groq SDK", "Tailwind CSS"],
       category: "ai",
-      demoLink: "#",
-      githubLink: "#",
+      demoLink: null,
+      githubLink: null,
       features: [
         "Batch Lead Upload with CSV processing",
         "AI-Powered Scoring with OpenAI and Groq",

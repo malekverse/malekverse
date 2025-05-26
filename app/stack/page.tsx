@@ -327,7 +327,7 @@ export default function StackPage() {
     <PageWrapper>
     <main className="relative min-h-screen text-white overflow-hidden">
       {!isMobile && <CustomCursor />}
-      <CosmicBackground />
+      {/* <CosmicBackground /> */}
 
       <section ref={containerRef} className="py-20 min-h-screen">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
