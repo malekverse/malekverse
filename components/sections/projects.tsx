@@ -241,14 +241,13 @@ export function Projects() {
           ))}
         </StaggerContainer>
 
-        {/* Update the button at the bottom */}
-        {/* <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-12">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button className="bg-teal-500 hover:bg-teal-600" onClick={handleViewAllProjects}>
               View All Projects
             </Button>
           </motion.div>
-        </div> */}
+        </div>
       </div>
     </section>
   )

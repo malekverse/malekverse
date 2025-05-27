@@ -129,7 +129,7 @@ export function Work() {
             </FadeIn>
           ))}
         </div>
-        {/* <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-12">
           <Link
             href="/work"
             className="group inline-flex items-center gap-1 text-teal-500 hover:text-teal-600 transition-colors"
@@ -137,7 +137,7 @@ export function Work() {
             <span>Learn more about my work</span>
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div> */}
+        </div>
       </div>
     </section>
   )

@@ -300,6 +300,15 @@ export function Contact() {
             </Card>
           </motion.div>
         </div>
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-1 text-teal-400 hover:text-teal-300 transition-colors"
+          >
+            <span>Learn more about my contact</span>
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </div>
     </section>
   )
