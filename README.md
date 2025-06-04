@@ -10,7 +10,7 @@
   <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=malekverse" alt="malekverse" /></a>
 </p>
 
-- 🔭 I’m currently working on [Social media App](https://github.com/malekverse/tunisiaflicks.git)
+- 🔭 I’m currently working on [TunisiaFlicks](https://github.com/malekverse/tunisiaflicks.git)
 
 - 👨‍💻 All of my projects are available at [https://malekverse.com](https://malekverse.com)
 
