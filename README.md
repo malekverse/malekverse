@@ -10,11 +10,6 @@
   <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=malekverse" alt="malekverse" /></a>
 </p>
 
-<p align="center"> 
-  <a href="https://www.map.org.uk"><img src="https://raw.githubusercontent.com/Ademking/Support-Palestine/main/Support-Palestine.svg" alt="Support Palestine"></a>
-  <img src="https://komarev.com/ghpvc/?username=malek33&label=Profile%20views&color=0e75b6&style=flat" alt="malek33" />
-</p>
-
 - 🔭 I’m currently working on [Social media App](https://github.com/malekverse/tunisiaflicks.git)
 
 - 👨‍💻 All of my projects are available at [https://malekverse.com](https://malekverse.com)
