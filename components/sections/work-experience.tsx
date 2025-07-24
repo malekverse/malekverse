@@ -216,8 +216,8 @@ export function WorkExperience() {
   ]
 
   const careerStats = [
-    { label: "Years Experience", value: "3+", icon: Clock },
-    { label: "Projects Completed", value: "25+", icon: Briefcase },
+    { label: "Years Experience", value: "5+", icon: Clock },
+    { label: "Projects Completed", value: "50+", icon: Briefcase },
     { label: "Students Mentored", value: "100+", icon: Users },
     { label: "Technologies Mastered", value: "15+", icon: Code },
   ]

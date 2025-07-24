@@ -11,7 +11,7 @@ import { RefreshCw, Download, TrendingUp, Star, Clock, BookOpen } from "lucide-r
 
 // Mock data for the skill graph
 const skillsData = [
-  { name: "React", level: 90, projects: 15, experience: "3 years", category: "frontend" },
+  { name: "React", level: 90, projects: 15, experience: "4 years", category: "frontend" },
   { name: "TypeScript", level: 85, projects: 12, experience: "2.5 years", category: "language" },
   { name: "Next.js", level: 80, projects: 8, experience: "2 years", category: "frontend" },
   { name: "Node.js", level: 75, projects: 10, experience: "3 years", category: "backend" },

@@ -261,7 +261,7 @@ export default function AboutPage() {
                         </div>
                         <div>
                           <p className="text-sm text-gray-500 dark:text-gray-400">Experience</p>
-                          <p className="font-medium text-primary">3+ Years</p>
+                          <p className="font-medium text-primary">5+ Years</p>
                         </div>
                       </motion.div>
 

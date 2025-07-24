@@ -163,8 +163,8 @@ export function ContactCreative() {
     {
       icon: <Mail className="h-6 w-6 text-teal-500" />,
       title: "Email",
-      value: "contact@malekverse.com",
-      link: "mailto:contact@malekverse.com",
+      value: "malek.magraoui3@gmail.com",
+      link: "mailto:malek.magraoui3@gmail.com",
     },
     {
       icon: <Phone className="h-6 w-6 text-teal-500" />,
