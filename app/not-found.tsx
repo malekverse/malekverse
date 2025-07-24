@@ -79,13 +79,13 @@ export default function NotFound() {
         >
           <p>Here are some helpful links:</p>
           <div className="space-x-4">
-            <Link href="/#about" className="hover:text-teal-400 transition-colors">
+            <Link href="/about" className="hover:text-teal-400 transition-colors">
               About
             </Link>
-            <Link href="/#projects" className="hover:text-teal-400 transition-colors">
+            <Link href="/projects" className="hover:text-teal-400 transition-colors">
               Projects
             </Link>
-            <Link href="/#contact" className="hover:text-teal-400 transition-colors">
+            <Link href="/contact" className="hover:text-teal-400 transition-colors">
               Contact
             </Link>
           </div>

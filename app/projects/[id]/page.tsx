@@ -4,9 +4,10 @@ import { useEffect, useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowLeft, ExternalLink, Github } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowLeft, ExternalLink, Github, X, ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { PageWrapper } from "@/components/page-wrapper"
 
 // This would typically come from a database or API
@@ -61,6 +62,7 @@ const projectsData = [
         description: "A personalized profile page displaying saved films, user preferences, and activity history",
       },
     ],
+    // videoUrl: "/src/projects/tunisiaflicks/demo.mp4",
   },
   {
     id: "lead-insight",
@@ -124,6 +126,7 @@ const projectsData = [
         description: "Custom messaging interface with AI-generated templates",
       },
     ],
+    // videoUrl: "/src/projects/lead-insight/demo.mp4",
   },
   {
     id: "ipsas-university",
@@ -175,14 +178,168 @@ const projectsData = [
         description: "Interface for verifying academic credentials using blockchain",
       },
     ],
+    // videoUrl: "/src/projects/ipsas-university/demo.mp4",
   },
 ]
+
+// Screenshot Carousel Component
+function ScreenshotCarousel({ screenshots, initialIndex = 0, onClose }: { screenshots: any[], initialIndex?: number, onClose: () => void }) {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % screenshots.length)
+  }
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length)
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') nextImage()
+      if (e.key === 'ArrowLeft') prevImage()
+      if (e.key === 'Escape') onClose()
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen)
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={`fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 ${isFullscreen ? 'p-0' : ''}`}
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        className={`relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden max-w-6xl w-full ${isFullscreen ? 'h-full max-w-none rounded-none' : 'max-h-[90vh]'}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+          <div className="flex items-center space-x-4">
+            <h3 className="text-lg font-semibold">{screenshots[currentIndex].title}</h3>
+            <span className="text-sm text-gray-500">
+              {currentIndex + 1} of {screenshots.length}
+            </span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleFullscreen}
+              className="hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              <X size={16} />
+            </Button>
+          </div>
+        </div>
+
+        {/* Image Container */}
+        <div className={`relative ${isFullscreen ? 'h-[calc(100vh-120px)]' : 'h-[60vh]'} bg-gray-50 dark:bg-gray-800`}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={screenshots[currentIndex].image || "/placeholder.svg"}
+                alt={screenshots[currentIndex].title}
+                fill
+                className="object-contain"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Navigation Buttons */}
+          {screenshots.length > 1 && (
+            <>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm"
+              >
+                <ChevronLeft size={20} />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm"
+              >
+                <ChevronRight size={20} />
+              </Button>
+            </>
+          )}
+        </div>
+
+        {/* Description */}
+        <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+          <p className="text-gray-600 dark:text-gray-300">{screenshots[currentIndex].description}</p>
+        </div>
+
+        {/* Thumbnail Navigation */}
+        {screenshots.length > 1 && (
+          <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex space-x-2 overflow-x-auto">
+              {screenshots.map((screenshot, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`relative flex-shrink-0 w-16 h-12 rounded-md overflow-hidden border-2 transition-all ${
+                    index === currentIndex
+                      ? 'border-teal-500 ring-2 ring-teal-500/20'
+                      : 'border-gray-300 dark:border-gray-600 hover:border-gray-400'
+                  }`}
+                >
+                  <Image
+                    src={screenshot.image || "/placeholder.svg"}
+                    alt={screenshot.title}
+                    fill
+                    className="object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </motion.div>
+    </motion.div>
+  )
+}
 
 export default function ProjectDetails() {
   const params = useParams()
   const router = useRouter()
   const [project, setProject] = useState<any>(null)
   const [loading, setLoading] = useState(true)
+  const [selectedScreenshot, setSelectedScreenshot] = useState<number | null>(null)
+  const [isVideoFullscreen, setIsVideoFullscreen] = useState(false)
 
   useEffect(() => {
     if (params.id) {
@@ -326,34 +483,82 @@ export default function ProjectDetails() {
                   </div>
                 </div>
               </div>
+
+              {/* Video Preview Section */}
+              {project.videoUrl && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="bg-white/5 dark:bg-navy-500/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-bold">Project Preview</h3>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setIsVideoFullscreen(true)}
+                      className="hover:bg-gray-100 dark:hover:bg-gray-800"
+                    >
+                      <Maximize2 size={16} className="mr-2" />
+                      Fullscreen
+                    </Button>
+                  </div>
+                  <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <video
+                      src={project.videoUrl}
+                      controls
+                      className="w-full h-full object-cover"
+                      poster={project.image}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold mb-6">Screenshots</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {project.screenshots.map((screenshot: any, i: number) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * i }}
-                className="bg-white/5 dark:bg-navy-500/50 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800"
-              >
-                <div className="relative h-60 w-full">
-                  <Image
-                    src={screenshot.image || "/placeholder.svg"}
-                    alt={screenshot.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold mb-1">{screenshot.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{screenshot.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {/* Screenshots Section - Only show if project has screenshots */}
+          {project.screenshots && project.screenshots.length > 0 && (
+            <>
+              <h2 className="text-2xl font-bold mb-6">Screenshots</h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {project.screenshots.map((screenshot: any, i: number) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 * i }}
+                    className="bg-white/5 dark:bg-navy-500/50 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 cursor-pointer group hover:border-teal-500/50 transition-all duration-300"
+                    onClick={() => setSelectedScreenshot(i)}
+                  >
+                    <div className="relative h-60 w-full overflow-hidden">
+                      <Image
+                        src={screenshot.image || "/placeholder.svg"}
+                        alt={screenshot.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileHover={{ opacity: 1, scale: 1 }}
+                          className="bg-teal-500 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                          <Maximize2 size={20} />
+                        </motion.div>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-bold mb-1 group-hover:text-teal-500 transition-colors">{screenshot.title}</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{screenshot.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          )}
 
           <div className="flex justify-center">
             <Link
@@ -365,6 +570,56 @@ export default function ProjectDetails() {
             </Link>
           </div>
         </motion.div>
+
+        {/* Screenshot Carousel Modal */}
+        <AnimatePresence>
+          {selectedScreenshot !== null && (
+            <ScreenshotCarousel
+              screenshots={project.screenshots}
+              initialIndex={selectedScreenshot}
+              onClose={() => setSelectedScreenshot(null)}
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Video Fullscreen Modal */}
+        <AnimatePresence>
+          {isVideoFullscreen && project.videoUrl && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black z-50 flex items-center justify-center"
+              onClick={() => setIsVideoFullscreen(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                className="relative w-full h-full max-w-7xl max-h-full p-4"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsVideoFullscreen(false)}
+                  className="absolute top-6 right-6 z-10 bg-black/50 hover:bg-black/70 text-white"
+                >
+                  <X size={20} />
+                </Button>
+                <video
+                  src={project.videoUrl}
+                  controls
+                  autoPlay
+                  className="w-full h-full object-contain rounded-lg"
+                  poster={project.image}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </PageWrapper>
   )
