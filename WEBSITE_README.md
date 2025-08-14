@@ -14,7 +14,7 @@ A modern, responsive portfolio website built with Next.js, React, and Tailwind C
 
 The portfolio includes a professional email notification system for the contact form. When a visitor submits the contact form:
 
-1. The server sends an email notification to the portfolio owner (to both `malek.magraoui3@gmail.com` and `contact@malekverse.com`)
+1. The server sends an email notification to the portfolio owner (`malek.magraoui3@gmail.com`)
 2. The visitor receives a confirmation email thanking them for their message
 
 ### Email System Setup

@@ -535,7 +535,7 @@ export async function POST(request: NextRequest) {
     try {
       await transporter.sendMail({
         from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
-        to: ['malek.magraoui3@gmail.com', 'contact@malekverse.com'],
+        to: ['malek.magraoui3@gmail.com'],
         subject: `New Contact: ${subject}`,
         html: generateAdminEmailTemplate({ name, email, subject, message, smartResponse }),
       });
