@@ -12,7 +12,7 @@ AI engineer building **AI you can trust in production**: LLM agents with guardra
 |---|---|---|
 | [**QTrust**](https://q-trust-saas.vercel.app) | Multi-tenant SaaS for Quranic schools + tablet app for QR attendance | Admin agent with ~43 tools: Zod-validated arguments, every write held for human approval |
 | [**Bridge**](https://bridgeforall.vercel.app) | Accessibility platform for neurodivergent & disabled users (EN/FR/AR) | Validated LLM output with multi-provider fallback · 19 automated row-level-security checks |
-| **Edah Studio** | Written lecture → narrated Arabic/English video with a 3D presenter | 5-layer faithfulness pipeline so the model can't invent facts |
+| [**Edah Studio**](https://edah-studio.onrender.com/) | Written lecture → narrated Arabic/English video with a 3D presenter | 5-layer faithfulness pipeline so the model can't invent facts |
 | [**Win El Dhaw**](https://win-el-dhaw.vercel.app) | Live crowdsourced power-outage map for Tunisia | Reports from web, Telegram and news merged with DBSCAN clustering on PostGIS |
 | [**quran-dataset**](https://github.com/malekverse/quran-dataset) | Structured open dataset of the Qur'an (JSON/CSV) | Open data for Arabic and Islamic tech |
 
