@@ -24,4 +24,4 @@ Open source: merged fix in [God's Eye View](https://github.com/bilawalsidhu/gods
 `TypeScript` `Next.js` `React` `Node.js` `Hono` `Python` `FastAPI` `PostgreSQL` `MongoDB` `Supabase` `AWS` `Bedrock` `Terraform` `Vercel AI SDK` `LangChain` `ONNX Runtime`
 
 #### Elsewhere
-[LinkedIn](https://www.linkedin.com/in/malek-maghraoui) · X: soon · [malekverse.com](https://malekverse.com)
+[LinkedIn](https://www.linkedin.com/in/malek-maghraoui) · [malekverse.com](https://malekverse.com)
