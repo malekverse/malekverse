@@ -1,3 +1,5 @@
+<a href="https://www.malekverse.com"><img src="assets/banner.png" alt="AI you can trust in production. LLM agents, evals and guardrails, shipped end to end. malekverse.com" width="100%"></a>
+
 ### Hi, I'm Malek
 
 AI engineer building **AI you can trust in production**: LLM agents with guardrails, evaluation harnesses, and RAG that sticks to its sources.
